@@ -13,7 +13,7 @@ export const ORDER_BY_PRICE = "ORDER_BY_PRICE";
 export const getP = () => {
   return (dispatch) => {
     return axios
-      .get(`http://localhost:3001/products`)
+      .get(`products`)
       .then((res) => dispatch({ type: GET_PRODUCTS, payload: res.data }))
       .catch((error) => console.error(error));
   };
@@ -23,7 +23,7 @@ export const getP = () => {
 export const getFeatured = () => {
   return (dispatch) => {
     return axios
-      .get(`http://localhost:3001/filters`)
+      .get(`filters`)
       .then((res) => dispatch({ type: FEATURED, payload: res.data }))
       .catch((error) => console.error(error));
   };
@@ -33,9 +33,7 @@ export const getFeatured = () => {
 export const getProductByName = (name) => {
   return async (dispatch) => {
     try {
-      const allProducts = await axios.get(
-        `http://localhost:3001/products?q=${name}`
-      );
+      const allProducts = await axios.get(`products?q=${name}`);
       const result = allProducts.data;
 
       dispatch({ type: GET_PRODUCT_BY_NAME, payload: result });
@@ -50,9 +48,7 @@ export const GET_BY_CATEGORY = "GET_BY_CATEGORY";
 export const getByCategory = (category) => {
   return async (dispatch) => {
     try {
-      const byCategory = await axios.get(
-        `http://localhost:3001/filters/${category}`
-      );
+      const byCategory = await axios.get(`filters/${category}`);
       const result = byCategory.data;
       dispatch({ type: GET_BY_CATEGORY, payload: result });
     } catch (error) {
@@ -65,7 +61,7 @@ export const getByCategoryAndName = (category, name) => {
   return async (dispatch) => {
     try {
       const byCategoryAndName = await axios.get(
-        `http://localhost:3001/filters/${category}?q=${name}`
+        `filters/${category}?q=${name}`
       );
       const result = byCategoryAndName.data;
       dispatch({ type: GET_BY_CATEGORY, payload: result });
@@ -78,7 +74,7 @@ export const getByCategoryAndName = (category, name) => {
 export const getProductByID = (id) => {
   return async (dispatch) => {
     try {
-      const product = await axios.get(`http://localhost:3001/products/${id}`);
+      const product = await axios.get(`products/${id}`);
       const result = product.data;
 
       dispatch({ type: GET_PRODUCT_BY_ID, payload: result });
@@ -92,7 +88,7 @@ export const deleteProduct = (id) => {
   return async (dispatch) => {
     try {
       dispatch({ type: DELETE, payload: id });
-      await axios.delete(`localhost:3001/products/${id}`);
+      await axios.delete(`products/${id}`);
     } catch (error) {
       console.error(error.message);
     }
@@ -102,7 +98,7 @@ export const deleteProduct = (id) => {
 export const mutateProduct = (data) => {
   return async (dispatch) => {
     try {
-      await axios.patch("localhost:3001/products", data);
+      await axios.patch("products", data);
       dispatch({ type: MUTATE_PRODUCT, payload: data });
     } catch (error) {
       console.error(error.message);
@@ -136,7 +132,7 @@ export const DELETE_TAG = "DELETE_TAG";
 export const getTags = () => {
   return async (dispatch) => {
     try {
-      const tags = await axios.get("localhost:3001/tags");
+      const tags = await axios.get("tags");
       const result = tags.data;
 
       dispatch({ type: GET_TAGS, payload: result });
@@ -156,7 +152,7 @@ export const getTags = () => {
 export const deleteTag = (id) => {
   return async (dispatch) => {
     try {
-      const hasTagDelete = await axios.delete(`localhost:3001/tags/${id}`);
+      const hasTagDelete = await axios.delete(`tags/${id}`);
       dispatch({ type: DELETE_TAG, payload: hasTagDelete });
     } catch (error) {
       console.error(error);
@@ -174,7 +170,7 @@ export const CREATE_COLOR = "CREATE_COLOR";
 export const getAllColors = () => {
   return async (dispatch) => {
     try {
-      const hasColors = await axios.get("localhost:3001/colors");
+      const hasColors = await axios.get("colors");
       const result = hasColors.data;
       dispatch({ type: GET_ALL_COLORS, payload: result });
     } catch (error) {
@@ -193,7 +189,7 @@ export const CREATE_SIZE = "CREATE_SIZE";
 export const getAllSizes = () => {
   return async (dispatch) => {
     try {
-      const hasSizes = await axios.get("localhost:3001/sizes");
+      const hasSizes = await axios.get("sizes");
       const result = hasSizes.data;
       dispatch({ type: GET_ALL_SIZE, payload: result });
     } catch (error) {

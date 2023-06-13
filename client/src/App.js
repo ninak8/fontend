@@ -3,8 +3,10 @@ import "./App.css";
 import { Home, Detail, Faqs, Create, Catalogs } from "./pages/index";
 import { Route } from "react-router-dom";
 import NavBar from "./components/navBar/navBar";
-// import Error from "./components/error/error";
-// import Loader from "./components/loader/loader";
+import axios from "axios";
+
+axios.defaults.baseURL = "https://back-production-c55d.up.railway.app/";
+// axios.defaults.baseURL = "https://localhost:3001/";
 
 function App() {
   const eventInput = (setPaging) => {
