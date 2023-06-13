@@ -1,0 +1,217 @@
+.icon {
+  width: 100px;
+  height: 100px;
+  /* background-color: red; */
+  animation: shake3856 2s linear infinite both;
+  filter: drop-shadow(0px 0px 1px #ffd904);
+}
+
+.icon:hover {
+  animation: shake3856 5s linear infinite both;
+  filter: drop-shadow(0px 0px 5px #ffd904);
+  transition: 0.5s;
+}
+
+@keyframes shake3856 {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+
+  20% {
+    -webkit-transform: translate(-5px, 5px);
+    transform: translate(-5px, 5px);
+  }
+
+  40% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    -webkit-transform: translate(2px, 2px);
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    -webkit-transform: translate(10px, -10px);
+    transform: translate(2px, -2px);
+  }
+
+  100% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+}
+
+/* +++++++++++++++++++++++++ */
+
+.navBar {
+  height: 4.5em;
+  width: 100%;
+
+  top: 0;
+  position: sticky;
+  z-index: 9000;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: #101010;
+  color: #f5f5f5;
+}
+
+.rigth div > a {
+  margin-left: 30px;
+}
+
+.rigth > div {
+  width: 18em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿ */
+
+.containerButtons {
+  width: 20em;
+  height: 4.5em;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.containerButtons div > a {
+  text-decoration: none;
+}
+
+.containerButtons div a > span {
+  font-family: "Montserrat", sans-serif;
+  color: #f5f5f5;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* dropDownsButtons */
+
+.principalButton a > span {
+  cursor: pointer;
+  padding-bottom: 0.5em;
+  display: flex;
+  align-items: end;
+  z-index: 1000;
+}
+
+.principalButton a > span:hover {
+  border-bottom: 4px solid #ffd904;
+  color: #ffd904;
+}
+
+.principalButton img {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.principalButton a > p {
+  display: flex;
+  align-items: end;
+  z-index: 1000;
+
+  font-weight: 400;
+  font-size: 16px;
+
+  padding-bottom: 0.5em;
+  cursor: pointer;
+  color: #f5f5f5;
+}
+
+.principalButton a > p:hover {
+  border-bottom: 4px solid #ffd904;
+  color: #ffd904;
+}
+
+.dropDowns {
+  left: 0em;
+  top: 4.5rem;
+  height: 30em;
+  width: 100%;
+
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: row;
+
+  background-color: #e7e7e7;
+  z-index: 1000;
+}
+
+.dropDownsButtons {
+  color: #101010;
+  padding: 1em 0;
+  width: 13rem;
+}
+
+.dropDownsButtons a > .title {
+  cursor: pointer;
+  width: auto;
+  border: none;
+  text-decoration: underline;
+
+  font-size: 18px;
+  font-family: "Sarabun", sans-serif;
+  font-weight: 400;
+}
+
+.dropDownsButtons a > .title:hover {
+  background-color: #101010;
+  text-decoration: underline;
+  transition: 0.2s;
+  color: #f5f5f5;
+}
+
+.dropDownsButtons > a {
+  /* width: 13rem; */
+
+  display: flex;
+  justify-content: start;
+
+  text-decoration: underline;
+  font-family: "Sarabun", sans-serif;
+  font-size: 16px;
+
+  margin: 0.5em 0;
+  border: none;
+  /* border-bottom: 1px solid #101010; */
+
+  background-color: transparent;
+  color: #101010;
+  cursor: pointer;
+}
+
+.dropDownsButtons > a:hover {
+  text-decoration: underline;
+}
+
+.dropDownsButtons > img {
+  object-fit: cover;
+}
+
+.divFaqs {
+  background-color: #ffd904;
+
+  border-radius: 50%;
+  width: 1.7em;
+  height: 1.7em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,216 @@
+.detail {
+  height: auto;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: red; */
+}
+
+.detail .container {
+  height: auto;
+  max-width: 1450px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin: 1em 0 2em 0;
+
+  background-color: #f5f5f5;
+  /* background-color: green; */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+
+.detail .container .top {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+.containerCarrusel {
+  width: 60%;
+  height: 40em;
+}
+
+.detail .info {
+  background-color: #ffff;
+  /* background-color: aqua; */
+  width: 40%;
+  height: 40em;
+
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+}
+
+.detail .info .one {
+  /* background-color: red; */
+  width: 90%;
+  height: auto;
+
+  margin-top: 2em;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-family: "Sarabun", sans-serif;
+  font-size: 16px;
+  color: #cdcdcc;
+}
+
+.one .tags {
+  width: 13.5em;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #101010;
+  font-family: "Sarabun", sans-serif;
+  font-size: 16px;
+}
+
+.info .title {
+  width: 90%;
+  height: auto;
+
+  margin-top: 2em;
+}
+
+.info .title > h1 {
+  color: #101010;
+
+  font-size: 38px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.info .sizes {
+  width: 90%;
+  margin-top: 1em;
+}
+
+.info .sizes > div {
+  height: auto;
+  padding: 0.5em;
+  border: 1px solid #101010d8;
+  border-radius: 3px;
+
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+
+  background-color: #f9f9f9;
+}
+
+.info .sizes div > p {
+  margin-bottom: 0.5em;
+}
+
+.info .sizes div > div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.5em;
+}
+
+.info .sizes div > span {
+  padding: 0.5em 1em;
+  border: 1px solid #101010;
+  margin: 0 0 0.5em 0.5em;
+
+  font-size: 18px;
+  font-family: "Sarabun", sans-serif;
+}
+
+.images {
+  padding-left: 0.6em;
+}
+
+.info .sizes div .images > img {
+  /* border: 2px solid red; */
+  width: 80px;
+  height: 80px;
+
+  margin-right: 1em;
+
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  object-fit: cover;
+}
+
+/* --------------------- */
+
+.bottom {
+  /* background-color: blue; */
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+
+  margin-top: 2em;
+}
+
+.bottom .two {
+  /* background-color: pink; */
+  width: 65%;
+  height: auto;
+}
+
+.bottom .two > details {
+  /* background-color: green; */
+  width: 92%;
+
+  padding: 0 16px;
+  margin-bottom: 1em;
+}
+
+.bottom .three {
+  background-color: #fff;
+  width: 35%;
+  height: 30em;
+}
+
+.bottom .two details > summary {
+  /* background-color: red; */
+
+  width: 100%;
+  height: 5em;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding-left: 2em; */
+  font-size: 18px;
+  font-family: "Barlow", sans-serif;
+}
+
+.bottom .two details > p {
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  border-radius: 0 0 3px 3px;
+
+  font-family: "Barlow", sans-serif;
+  font-size: 16px;
+
+  color: #ffd904;
+  background-color: #101010;
+}
+
+@media (max-width: 1000px) {
+  .detail .container {
+    background-color: red;
+  }
+}
