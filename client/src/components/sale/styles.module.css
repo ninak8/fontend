@@ -1,6 +1,7 @@
 .sale {
-  height: 10em;
+  height: auto;
   width: 100%;
+  padding: 1em 0;
 
   display: flex;
   justify-content: center;
@@ -12,36 +13,39 @@
 }
 
 .sale .title {
-  width: 50%;
+  /* width: 40%; */
   height: 95%;
+  margin-left: 0.5em;
   /* background-color: red; */
-  margin: 1em;
 
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .sale div > h1 {
+  width: 5.5em;
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
   font-size: 72px;
 
+  /* background-color: green; */
   transform: rotate(-5deg);
 
   color: #101010;
 }
 
 .info {
-  width: 100%;
+  width: 90%;
   height: 95%;
-  margin: 1em;
+  margin: 0 1em;
 
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  /* background-color: green; */
 }
 
 .info > p {
@@ -133,5 +137,17 @@
 
   100% {
     fill: white;
+  }
+}
+
+@media (max-width: 730px) {
+  .sale > .title {
+    /* background-color: red; */
+    width: 80%;
+  }
+  .sale {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
   }
 }

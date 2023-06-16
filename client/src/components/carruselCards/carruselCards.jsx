@@ -1,7 +1,6 @@
 import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useSelector } from "react-redux";
 import Card from "../card/card";
 // Import Swiper styles
 import "swiper/css";
@@ -14,8 +13,6 @@ import "./styles.css";
 import { FreeMode, Pagination } from "swiper";
 
 export default function Carrusel(props) {
-  // const featured = useSelector((state) => state.featured);
-  // console.log(products);
   return (
     <div className="carrusel">
       <div className="title">
@@ -34,29 +31,106 @@ export default function Carrusel(props) {
           <p>VER TODO</p>
         </a>
       </div>
-      <Swiper
-        slidesPerView={4}
-        spaceBetween={20}
-        freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[FreeMode, Pagination]}
-        className="mySwiper"
-      >
-        {props.featured.map((elem, id) => {
-          return (
-            <SwiperSlide key={id}>
-              <Card
-                name={elem.name}
-                id={elem.id}
-                img={elem.image[0]}
-                score={elem.score}
-              />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+      <div className="desktop">
+        <Swiper
+          slidesPerView={4}
+          spaceBetween={20}
+          freeMode={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[FreeMode, Pagination]}
+          className="mySwiper"
+        >
+          {props.featured.map((elem, id) => {
+            return (
+              <SwiperSlide key={id}>
+                <Card
+                  name={elem.name}
+                  id={elem.id}
+                  img={elem.image[0]}
+                  score={elem.score}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+      <div className="responsiveThree">
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={20}
+          freeMode={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[FreeMode, Pagination]}
+          className="mySwiper"
+        >
+          {props.featured.map((elem, id) => {
+            return (
+              <SwiperSlide key={id}>
+                <Card
+                  name={elem.name}
+                  id={elem.id}
+                  img={elem.image[0]}
+                  score={elem.score}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+      <div className="responsiveTwo">
+        <Swiper
+          slidesPerView={2}
+          spaceBetween={20}
+          freeMode={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[FreeMode, Pagination]}
+          className="mySwiper"
+        >
+          {props.featured.map((elem, id) => {
+            return (
+              <SwiperSlide key={id}>
+                <Card
+                  name={elem.name}
+                  id={elem.id}
+                  img={elem.image[0]}
+                  score={elem.score}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+      <div className="responsiveOne">
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={20}
+          freeMode={true}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[FreeMode, Pagination]}
+          className="mySwiper"
+        >
+          {props.featured.map((elem, id) => {
+            return (
+              <SwiperSlide key={id}>
+                <Card
+                  name={elem.name}
+                  id={elem.id}
+                  img={elem.image[0]}
+                  score={elem.score}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
     </div>
   );
 }

@@ -11,6 +11,7 @@
 
 .detail .container {
   height: auto;
+  width: 100%;
   max-width: 1450px;
 
   display: flex;
@@ -174,11 +175,11 @@
   margin-bottom: 1em;
 }
 
-.bottom .three {
+/* .bottom .three {
   background-color: #fff;
   width: 35%;
   height: 30em;
-}
+} */
 
 .bottom .two details > summary {
   /* background-color: red; */
@@ -209,8 +210,56 @@
   background-color: #101010;
 }
 
-@media (max-width: 1000px) {
-  .detail .container {
-    background-color: red;
+@media (max-width: 900px) {
+  .detail .info .one {
+    margin-top: 1em;
   }
+
+  .info .title {
+    margin-top: 0.5em;
+  }
+  .detail .container {
+    margin: 0;
+  }
+
+  .detail .container .top {
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .containerCarrusel {
+    width: 100%;
+    height: auto;
+  }
+
+  .detail .info {
+    width: 100%;
+    height: auto;
+    padding-bottom: 2em;
+
+    /* background-color: red; */
+  }
+
+  .bottom {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 0;
+  }
+
+  .bottom .two {
+    width: 95%;
+  }
+
+  /* .bottom .three {
+    width: 95%;
+    background-color: red;
+  } */
 }

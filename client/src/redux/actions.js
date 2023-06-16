@@ -72,15 +72,13 @@ export const getByCategoryAndName = (category, name) => {
 };
 
 export const getProductByID = (id) => {
-  return async (dispatch) => {
-    try {
-      const product = await axios.get(`products/${id}`);
-      const result = product.data;
-
-      dispatch({ type: GET_PRODUCT_BY_ID, payload: result });
-    } catch (error) {
-      console.error(error);
-    }
+  return (dispatch) => {
+    return axios
+      .get(`products/${id}`)
+      .then((res) =>
+        dispatch({ type: GET_PRODUCT_BY_ID, payload: res.data[0] })
+      )
+      .catch((error) => console.error(error));
   };
 };
 

@@ -1,6 +1,6 @@
 .carrusel {
   /* background-color: red; */
-  width: 85%;
+  width: 100%;
   height: 26em;
   display: flex;
   justify-content: center;
@@ -8,16 +8,19 @@
   flex-direction: column;
 }
 
+.desktop {
+  /* background-color: green; */
+  width: 95%;
+}
+
 .title {
-  /* background-color: red; */
-  height: 4em;
-  width: 100%;
+  height: auto;
+  width: 95%;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  /* margin: 0 2em; */
+  flex-wrap: wrap;
 }
 
 .title > div {
@@ -31,7 +34,6 @@
 }
 
 .title a > p {
-  margin-right: 5em;
   text-decoration: underline #101010;
 
   font-family: "Montserrat", sans-serif;
@@ -60,8 +62,6 @@
   height: 18em;
 
   font-size: 18px;
-  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
-  /* background-color: rgb(53, 53, 53); */
 }
 
 .swiper-slide img {
@@ -70,4 +70,70 @@
   height: 100%;
   object-fit: cover;
   /* background-color: aqua; */
+}
+
+.responsiveOne {
+  /* background-color: red; */
+  width: 95%;
+  height: auto;
+  display: none;
+}
+
+.responsiveTwo {
+  /* background-color: red; */
+  width: 95%;
+  height: auto;
+  display: none;
+}
+
+.responsiveThree {
+  width: 95%;
+  height: auto;
+  display: none;
+}
+
+@media (max-width: 1300px) {
+  .desktop {
+    display: none;
+  }
+
+  .responsiveThree {
+    display: flex;
+    /* background-color: aqua; */
+  }
+}
+
+@media (max-width: 900px) {
+  .responsiveThree {
+    display: none;
+  }
+
+  .responsiveTwo {
+    display: flex;
+    /* background-color: red; */
+  }
+}
+
+@media (max-width: 612px) {
+  .desktop {
+    display: none;
+  }
+
+  .responsiveTwo {
+    display: none;
+  }
+
+  .responsiveOne {
+    display: flex;
+  }
+
+  .title a > p {
+    margin-bottom: 0.5em;
+  }
+
+  .title div > span {
+    /* background-color: green; */
+    font-size: 28px;
+    transition: 1s;
+  }
 }

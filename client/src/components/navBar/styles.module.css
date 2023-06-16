@@ -1,9 +1,9 @@
 .icon {
   width: 100px;
   height: 100px;
-  /* background-color: red; */
   animation: shake3856 2s linear infinite both;
   filter: drop-shadow(0px 0px 1px #ffd904);
+  transition: 1s;
 }
 
 .icon:hover {
@@ -52,36 +52,41 @@
 
   top: 0;
   position: sticky;
-  z-index: 9000;
+  z-index: 10000;
 
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  /* justify-content: space-around; */
+  justify-content: center;
+  justify-items: center;
 
   background-color: #101010;
   color: #f5f5f5;
+}
+
+.rigth {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: green;
 }
 
 .rigth div > a {
   margin-left: 30px;
 }
 
-.rigth > div {
-  width: 18em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 /* ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿ */
 
 .containerButtons {
-  width: 20em;
+  /* width: 17em; */
   height: 4.5em;
+
+  min-width: 11em;
 
   display: flex;
   justify-content: space-between;
   align-items: end;
+  background-color: red;
 }
 
 .containerButtons div > a {
@@ -89,11 +94,12 @@
 }
 
 .containerButtons div a > span {
-  font-family: "Montserrat", sans-serif;
   color: #f5f5f5;
+  cursor: pointer;
+
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 16px;
-  cursor: pointer;
 }
 
 /* dropDownsButtons */
@@ -101,6 +107,7 @@
 .principalButton a > span {
   cursor: pointer;
   padding-bottom: 0.5em;
+
   display: flex;
   align-items: end;
   z-index: 1000;
@@ -111,12 +118,14 @@
   color: #ffd904;
 }
 
-.principalButton img {
+/* .principalButton img {
   width: 1rem;
   height: 1rem;
   margin-right: 0;
   cursor: pointer;
-}
+
+  background-color: green;
+} */
 
 .principalButton a > p {
   display: flex;
@@ -129,6 +138,7 @@
   padding-bottom: 0.5em;
   cursor: pointer;
   color: #f5f5f5;
+  /* color: aqua; */
 }
 
 .principalButton a > p:hover {
@@ -150,13 +160,15 @@
   flex-direction: row;
 
   background-color: #e7e7e7;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .dropDownsButtons {
   color: #101010;
   padding: 1em 0;
   width: 13rem;
+
+  /* background-color: yellow; */
 }
 
 .dropDownsButtons a > .title {
@@ -178,8 +190,6 @@
 }
 
 .dropDownsButtons > a {
-  /* width: 13rem; */
-
   display: flex;
   justify-content: start;
 
@@ -214,4 +224,300 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.burger {
+  display: none;
+}
+
+.containerFAQS {
+  display: flex;
+  align-items: center;
+  background-color: goldenrod;
+}
+
+.center {
+  width: 98%;
+  height: 4.4em;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonBurger {
+  display: none;
+}
+
+.movilMenu {
+  display: none;
+}
+
+.movil {
+  width: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: aquamarine;
+  display: none;
+}
+
+@media (max-width: 730px) {
+  .icon {
+    width: 80px;
+    height: 80px;
+    transition: 1s;
+  }
+}
+
+.movil {
+  display: flex;
+}
+
+@media (max-width: 865px) {
+  .containerButtons {
+    width: 13em;
+    min-width: 11em;
+  }
+}
+
+@media (max-width: 730px) {
+  .containerButtons {
+    display: none;
+  }
+
+  .containerFAQS {
+    display: none;
+  }
+
+  .navBar {
+    display: flex;
+    justify-content: center;
+  }
+
+  .rigth {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .buttonBurger {
+    display: flex;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+
+  .buttonOut {
+    display: flex;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 1em 1em 0 0;
+  }
+
+  .top {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    /* background-color: red; */
+  }
+
+  .center {
+    width: 95%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: red; */
+  }
+
+  .movilMenu {
+    right: 0em;
+    top: 0em;
+    height: 100vh;
+    width: 65%;
+
+    position: absolute;
+
+    transition: 2s;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: #101010;
+    /* background-color: red; */
+    transition: 2s;
+    z-index: 1000;
+  }
+
+  .nav {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dropDownsButtonsMovil {
+    margin: 5px 0;
+    padding-left: 10px;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dropDownsButtonsMovil a > button {
+    font-family: "Sarabun", sans-serif;
+    font-size: 18px;
+    border: none;
+    margin-top: 5px;
+
+    color: #f5f5f5;
+    background-color: transparent;
+  }
+
+  .dropDownsButtonsMovil a > button:hover {
+    text-decoration: underline;
+    background-color: #f5f5f5;
+    color: #101010;
+  }
+
+  .dropDownsButtonsMovil > a {
+    text-decoration: none;
+
+    color: #f5f5f5;
+  }
+
+  .dropDownsButtonsMovil > a:hover {
+    text-decoration: underline;
+  }
+
+  .options {
+    width: 80%;
+    height: auto;
+
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+
+    margin-top: 1em;
+    /* background-color: green; */
+  }
+
+  .options > details {
+    width: 100%;
+    margin: 6px 0 0 0;
+  }
+
+  .options details > summary {
+    width: 95%;
+    height: 3em;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 5px;
+
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+  }
+
+  .options > a {
+    display: flex;
+    align-items: center;
+    margin-top: 1.1em;
+
+    text-decoration: none;
+    margin-bottom: 1em;
+    margin-left: 5px;
+  }
+
+  .options > a:hover {
+    border-bottom: 4px solid #ffd904;
+    color: #ffd904;
+  }
+
+  .options a > span {
+    color: #f5f5f5;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+  }
+}
+
+.category {
+  height: auto;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category > span {
+  font-family: "Montserrat", sans-serif;
+  color: #f5f5f5;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.category span:hover {
+  border-bottom: 4px solid #ffd904;
+  color: #ffd904;
+}
+
+@media (max-width: 600px) {
+  .navBar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .rigth {
+    display: none;
+  }
+
+  .principalButton {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 570px) {
+  .options {
+    width: 17em;
+
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 490px) {
+  .movilMenu {
+    transition: 2s;
+    width: 80%;
+  }
+}
+
+@media (max-width: 391px) {
+  .options {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 290px) {
+  .options {
+    font-size: 13px;
+  }
 }

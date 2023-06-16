@@ -13,28 +13,53 @@ export default function Carousel() {
   SwiperCore.use([Autoplay]);
 
   return (
-    <div className="carri">
-      <Swiper
-        slidesPerView={1}
-        // spaceBetween={30}
-        pagination={true}
-        scrollbar={{ draggable: true }}
-        modules={[Pagination, Autoplay]}
-        className="mySwiper"
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        loop={true}
-      >
-        {data.img.map((link, i) => {
-          return (
-            <SwiperSlide key={i}>
-              <img src={link} alt={i} />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+    <div className="containerCar">
+      <div className="carri">
+        <Swiper
+          slidesPerView={1}
+          // spaceBetween={30}
+          pagination={true}
+          scrollbar={{ draggable: true }}
+          modules={[Pagination, Autoplay]}
+          className="mySwiper"
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+        >
+          {data.img.map((link, i) => {
+            return (
+              <SwiperSlide key={i}>
+                <img src={link} alt={i} />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+      <div className="movilOne">
+        <Swiper
+          slidesPerView={1}
+          // spaceBetween={30}
+          pagination={true}
+          scrollbar={{ draggable: true }}
+          modules={[Pagination, Autoplay]}
+          className="mySwiper"
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+        >
+          {data.img.map((link, i) => {
+            return (
+              <SwiperSlide key={i}>
+                <img src={link} alt={i} />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
     </div>
   );
 }

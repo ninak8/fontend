@@ -24,6 +24,10 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid #101010;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* .App {
   text-align: center;
 }

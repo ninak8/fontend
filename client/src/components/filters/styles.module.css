@@ -2,7 +2,7 @@
   width: 200px;
   height: 40px;
 
-  margin-right: 96px;
+  /* margin-right: 96px; */
   border: 1px solid #101010;
 
   background-color: transparent;
@@ -36,7 +36,8 @@
   right: 0em;
   top: 4.5rem;
   height: 93%;
-  width: 30%;
+  /* width: 30%; */
+  width: 35em;
 
   position: absolute;
 
@@ -46,7 +47,7 @@
   flex-direction: column;
   overflow: auto;
   background-color: #f5f5f5;
-  z-index: 10000;
+  z-index: 9000;
   position: fixed;
   box-shadow: 0px 0px 30px 7px rgba(0, 0, 0, 0.2);
 }
@@ -198,4 +199,17 @@
 .dropDownsButtons button:active {
   transform: translateY(2px);
   color: #ffd904;
+}
+
+@media (max-width: 600px) {
+  .dropDowns {
+    width: 30em;
+    z-index: 9000;
+  }
+}
+
+@media (max-width: 440px) {
+  .dropDowns {
+    width: 100%;
+  }
 }

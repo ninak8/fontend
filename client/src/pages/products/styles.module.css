@@ -1,7 +1,6 @@
 .catalogs {
   display: flex;
-  /* justify-content: center;
-  justify-items: center; */
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
@@ -11,7 +10,7 @@
   background-color: #f5f5f5;
   display: flex;
   justify-content: center;
-  justify-items: center;
+  align-items: center;
   flex-direction: column;
 
   width: 100%;
@@ -19,15 +18,15 @@
 }
 
 .catalogs .top {
-  width: 100%;
+  width: 95%;
+
   display: flex;
   align-items: center;
-  padding: 32px 0;
-  /* background-color: green; */
+
+  padding: 26px 0;
 }
 
 .catalogs .top > a {
-  /* text-decoration: none; */
   color: #101010;
   font-size: 16px;
   font-family: "Sarabun", sans-serif;
@@ -38,7 +37,6 @@
 
   display: flex;
   align-items: center;
-  margin-left: 4em;
 
   color: #101010;
   font-family: "Montserrat", sans-serif;
@@ -46,12 +44,10 @@
 }
 
 .title {
-  width: 100%;
+  width: 90%;
   padding: 0 0 32px 0;
-  /* background-color: aqua; */
 
   display: flex;
-  /* flex-direction: ; */
   justify-content: space-between;
 }
 
@@ -76,10 +72,21 @@
   cursor: pointer;
 }
 
-.title > h1 {
-  margin-left: 96px;
-}
-
 .row {
   margin: 32px 0;
+}
+
+@media (max-width: 1020px) {
+  .title {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 0 16px 0;
+  }
+}
+
+@media (max-width: 645px) {
+  .catalogs .top {
+    padding: 16px 0 8px 0;
+  }
 }

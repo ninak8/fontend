@@ -12,9 +12,10 @@ import {
 
 const initialState = {
   products: [],
-  detail: [],
+  detail: {},
   Tags: [],
   featured: [],
+  search: [],
   // brands: [],
   // colors: []
 };
@@ -29,7 +30,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_PRODUCT_BY_NAME:
       return {
         ...state,
-        products: action.payload,
+        search: action.payload,
       };
     case GET_PRODUCT_BY_ID:
       return {
@@ -61,7 +62,7 @@ const rootReducer = (state = initialState, action) => {
     case CLEAN_DETAIL:
       return {
         ...state,
-        detail: [],
+        detail: null,
       };
 
     case ORDER_BY_PRICE:

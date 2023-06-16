@@ -6,9 +6,10 @@
 }
 
 .searchBar form > input {
-  height: 2.3em;
+  height: 2.4em;
   width: 15em;
 
+  transition: 1s;
   padding-left: 10px;
   border: none;
   border-radius: 20px 0 0 20px;
@@ -21,19 +22,64 @@
   background-color: rgba(128, 128, 128, 0.301);
 }
 
-.searchBar form > button {
-  height: 2.7em;
+.searchBar form > .button {
+  height: 2.4em;
   width: 2em;
 
-  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 5px 0 0;
   border-radius: 0 20px 20px 0;
-  padding: 3px 30px 0 0;
   cursor: pointer;
 
   background-color: rgba(128, 128, 128, 0.301);
 }
 
-/* 
-font-family: 'Montserrat', sans-serif;
-font-family: 'Sarabun', sans-serif;
- */
+.containerCards {
+  display: none;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 730px) {
+  .searchBar > form {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+  }
+
+  .searchBar {
+    width: 100%;
+  }
+
+  .containerCards {
+    display: flex;
+  }
+
+  .searchBar form > input {
+    transition: 0.1s;
+    height: 2.3em;
+  }
+
+  .searchBar form > .button {
+    height: 2.3em;
+  }
+}
+
+@media (max-width: 391px) {
+  .searchBar form > input {
+    transition: 1s;
+    width: 13em;
+  }
+}
+
+@media (max-width: 290px) {
+  .searchBar form > input {
+    transition: 1s;
+    width: 10em;
+  }
+}
