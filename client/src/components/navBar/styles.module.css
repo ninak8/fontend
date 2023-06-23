@@ -55,9 +55,9 @@
   z-index: 10000;
 
   display: flex;
-  /* justify-content: space-around; */
   justify-content: center;
   justify-items: center;
+  /* justify-content: space-around; */
 
   background-color: #101010;
   color: #f5f5f5;
@@ -68,7 +68,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: green;
+  /* background-color: green; */
 }
 
 .rigth div > a {
@@ -86,7 +86,7 @@
   display: flex;
   justify-content: space-between;
   align-items: end;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .containerButtons div > a {
@@ -233,7 +233,7 @@
 .containerFAQS {
   display: flex;
   align-items: center;
-  background-color: goldenrod;
+  /* background-color: goldenrod; */
 }
 
 .center {
@@ -254,50 +254,53 @@
 }
 
 .movil {
-  width: 4em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background-color: aquamarine;
   display: none;
 }
 
-@media (max-width: 730px) {
+@media (max-width: 865px) {
+  .nav {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+  }
+
+  .center {
+    width: 95%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .icon {
     width: 80px;
     height: 80px;
     transition: 1s;
-  }
-}
-
-.movil {
-  display: flex;
-}
-
-@media (max-width: 865px) {
-  .containerButtons {
-    width: 13em;
-    min-width: 11em;
-  }
-}
-
-@media (max-width: 730px) {
-  .containerButtons {
-    display: none;
   }
 
   .containerFAQS {
     display: none;
   }
 
-  .navBar {
-    display: flex;
-    justify-content: center;
+  .containerButtons {
+    display: none;
   }
 
   .rigth {
     display: none;
+  }
+
+  .movil {
+    width: 4em;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .burger {
@@ -311,29 +314,18 @@
     border: none;
   }
 
+  .top {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+  }
+
   .buttonOut {
     display: flex;
     cursor: pointer;
     background-color: transparent;
     border: none;
     padding: 1em 1em 0 0;
-  }
-
-  .top {
-    display: flex;
-    justify-content: end;
-    width: 100%;
-    /* background-color: red; */
-  }
-
-  .center {
-    width: 95%;
-    height: auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* background-color: red; */
   }
 
   .movilMenu {
@@ -343,8 +335,9 @@
     width: 65%;
 
     position: absolute;
+    padding: 0 5px;
+    overflow: auto;
 
-    transition: 2s;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -355,41 +348,33 @@
     z-index: 1000;
   }
 
-  .nav {
-    width: 100%;
-    height: auto;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  /* ..................... */
 
   .dropDownsButtonsMovil {
     margin: 5px 0;
-    padding-left: 10px;
+    padding-right: 20px;
 
     display: flex;
+    align-items: end;
     flex-direction: column;
+    /* background-color: red; */
   }
 
   .dropDownsButtonsMovil a > button {
     font-family: "Sarabun", sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     border: none;
     margin-top: 5px;
+    border-bottom: 3px solid #ffd904;
 
     color: #f5f5f5;
     background-color: transparent;
-  }
-
-  .dropDownsButtonsMovil a > button:hover {
-    text-decoration: underline;
-    background-color: #f5f5f5;
-    color: #101010;
+    cursor: pointer;
   }
 
   .dropDownsButtonsMovil > a {
     text-decoration: none;
+    margin-top: 0.4em;
 
     color: #f5f5f5;
   }
@@ -403,11 +388,11 @@
     height: auto;
 
     display: flex;
-    align-items: start;
+    align-items: end;
     flex-direction: column;
 
     margin-top: 1em;
-    /* background-color: green; */
+    overflow: auto;
   }
 
   .options > details {
@@ -429,17 +414,22 @@
     font-weight: 600;
   }
 
-  .options > a {
-    display: flex;
-    align-items: center;
-    margin-top: 1.1em;
-
+  .options .question > a {
     text-decoration: none;
-    margin-bottom: 1em;
-    margin-left: 5px;
+    margin-right: 8px;
   }
 
-  .options > a:hover {
+  .options > .question {
+    width: 100%;
+
+    display: flex;
+    justify-content: end;
+    margin: 1.1em 0 1em 0;
+
+    text-decoration: none;
+  }
+
+  .options .question > a:hover {
     border-bottom: 4px solid #ffd904;
     color: #ffd904;
   }
@@ -495,7 +485,6 @@
     width: 17em;
 
     display: flex;
-    align-items: start;
     flex-direction: column;
   }
 }
@@ -511,13 +500,39 @@
   .options {
     width: 100%;
     display: flex;
-    align-items: start;
+    align-items: end;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 340px) {
+  .options > .question {
+    width: 100%;
+
+    display: flex;
+    justify-content: end;
+    margin: 1.1em 0 1em 0;
+
+    text-decoration: none;
+  }
+
+  .options .question > a {
+    width: 60%;
+
+    text-decoration: none;
+    margin-right: 7px;
+
+    display: flex;
+    text-align: end;
   }
 }
 
 @media (max-width: 290px) {
   .options {
     font-size: 13px;
+
+    display: flex;
+    align-items: end;
+    flex-direction: column;
   }
 }

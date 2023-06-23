@@ -29,7 +29,7 @@ const Card = ({ img, name, score, id, tag }) => {
             ))}
           </div>
           <span>{name}</span>
-          <span>{tag}</span>
+          {/* <span>{tag}</span> */}
         </div>
       </a>
     </div>

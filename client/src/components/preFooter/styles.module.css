@@ -7,7 +7,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* flex-wrap: wrap; */
 
   background-color: #e7e7e7;
 }
@@ -24,7 +23,6 @@
 }
 
 .one > div {
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
   width: 2em;
@@ -46,7 +44,6 @@
   font-weight: 600;
   font-size: 16px;
 
-  /* background-color: green; */
   color: #101010;
 }
 
@@ -86,7 +83,6 @@
   display: flex;
   justify-content: center;
   align-items: start;
-  /* background-color: firebrick; */
 }
 
 @media (max-width: 770px) {
@@ -111,7 +107,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: green;
+
     width: 80%;
   }
 

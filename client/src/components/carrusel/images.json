@@ -1,7 +1,8 @@
 {
   "img": [
-    "https://i.ytimg.com/vi/79j52yy_70Y/maxresdefault.jpg",
-    "https://i.ibb.co/yYpKwtj/My-project-1-25.png",
-    "https://img.asmedia.epimg.net/resizer/y8yF4YntReQPkEB4eNNRFDo7NXU=/644x362/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/JHVZDXBFA5OHBFECF6W6HQJBVI.jpg"
-  ]
+    "https://i.ibb.co/qjJWp7x/My-project-1-1.png",
+    "https://i.ibb.co/yYpKwtj/My-project-1-25.png"
+  ],
+  "tablet": ["https://i.ibb.co/h97QSNP/1687468880566.jpg"],
+  "movil": ["https://i.ibb.co/6NSJ3vd/1687490424343.jpg"]
 }

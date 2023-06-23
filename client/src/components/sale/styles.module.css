@@ -36,10 +36,27 @@
   color: #101010;
 }
 
+.title {
+  /* background-color: green; */
+  width: 30%;
+}
+
+.title > .photo {
+  width: 17em;
+
+  position: absolute;
+  rotate: -70deg;
+  left: 0;
+  margin-left: 7em;
+
+  filter: drop-shadow(-14px -2px 10px rgba(0, 0, 0, 0.575));
+}
+
 .info {
   width: 90%;
   height: 95%;
   margin: 0 1em;
+  padding: 1em 0;
 
   display: flex;
   justify-content: center;
@@ -54,6 +71,10 @@
   margin-bottom: 1em;
 
   font-family: "Sarabun", sans-serif;
+}
+
+.info > a {
+  text-decoration: none;
 }
 
 .cta {

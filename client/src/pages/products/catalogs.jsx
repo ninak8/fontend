@@ -23,11 +23,18 @@ const Catalogs = (props) => {
   let name = params.name;
   // console.log(name);
 
-  const [indexPage, setIndexPage] = useState(0);
-  const [cuantity, setCuantity] = useState([]);
+  const [indexPage, setIndexPage] = useState(1);
+  const [byPage] = useState(12);
+
+  // const [cuantity, setCuantity] = useState([]);
   const [order, setOrder] = useState("");
 
-  let hasta = indexPage * 8 + 8;
+  // let hasta = indexPage * 8 + 8;
+  let maximo = Math.ceil(products.length / byPage);
+  // console.log(maximo);
+
+  // const [filters, setFilters] = useState([]);
+
   useEffect(() => {
     if (category === "all") {
       dispatch(getP());
@@ -39,19 +46,19 @@ const Catalogs = (props) => {
   }, []);
 
   useEffect(() => {
-    Array.isArray(products) &&
-      setCuantity(() => products.slice(indexPage * 8, hasta)); //una parte del array desde/hasta
-  }, [products, indexPage, hasta, order]);
+    // Array.isArray(products) &&
+    // setCuantity(() => products.slice(indexPage * 8, hasta)); //una parte del array desde/hasta
+  }, [products, indexPage, order]);
 
-  const prevPage = () => {
-    if (indexPage === 0) return;
-    setIndexPage((index) => index - 1);
-    props.inputEvent(setIndexPage);
-  };
+  // const prevPage = () => {
+  //   if (indexPage === 0) return;
+  //   setIndexPage((index) => index - 1);
+  //   props.inputEvent(setIndexPage);
+  // };
 
-  const nextPage = () => {
-    hasta < products.length && setIndexPage((index) => index + 1);
-  };
+  // const nextPage = () => {
+  //   hasta < products.length && setIndexPage((index) => index + 1);
+  // };
 
   return (
     <div className={styles.catalogs}>
@@ -77,7 +84,13 @@ const Catalogs = (props) => {
         </div>
         <div className={styles.row}>
           <Cards products={products} category={category} name={name} />
-          <Pages nextPage={nextPage} prevPage={prevPage} index={indexPage} />
+          {/* <Pages
+            // nextPage={nextPage}
+            // prevPage={prevPage}
+            index={indexPage}
+            setPage={setIndexPage}
+            max={maximo}
+          /> */}
         </div>
       </div>
       <PreFooter />

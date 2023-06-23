@@ -12,6 +12,28 @@ const NavBar = () => {
     search: false,
   });
 
+  // ++++++++++++++++
+
+  const [open, setOpen] = useState({
+    allMovil: false,
+    accessoriesMovil: false,
+  });
+
+  const submitTrue = (name) => {
+    setOpen({
+      ...open,
+      [name]: true,
+    });
+  };
+
+  const submitFalse = (name) => {
+    setOpen({
+      [name]: false,
+    });
+  };
+
+  // +++++++++++++++++
+
   const handleMouse = (name) => {
     setview({
       ...view,
@@ -221,6 +243,7 @@ const NavBar = () => {
               />
             </svg>
           </button>
+
           {view.search && (
             <div className={styles.movilMenu}>
               <div className={styles.top}>
@@ -244,7 +267,7 @@ const NavBar = () => {
               </div>
             </div>
           )}
-          {/* ++++++++++++++++++++ */}
+
           <button
             onClick={() => handleMouse("menu")}
             className={styles.buttonBurger}
@@ -282,16 +305,32 @@ const NavBar = () => {
               <div className={styles.options}>
                 <details>
                   <summary>
+                    {open.allMovil ? (
+                      // flechita top
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="30"
+                        viewBox="0 0 24 24"
+                        style={{ fill: "#ffd904" }}
+                        onClick={() => submitFalse("allMovil")}
+                      >
+                        <path d="m6.293 13.293 1.414 1.414L12 10.414l4.293 4.293 1.414-1.414L12 7.586z"></path>
+                      </svg>
+                    ) : (
+                      // flechita bottom
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="30"
+                        viewBox="0 0 24 24"
+                        style={{ fill: "#ffd904" }}
+                        onClick={() => submitTrue("allMovil")}
+                      >
+                        <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
+                      </svg>
+                    )}
                     TODO
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      viewBox="0 0 24 24"
-                      style={{ fill: "#ffd904" }}
-                    >
-                      <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
-                    </svg>
                   </summary>
                   <div className={styles.dropDownsButtonsMovil}>
                     <a href="/catalogs/calzado">
@@ -337,20 +376,36 @@ const NavBar = () => {
 
                 <details>
                   <summary>
+                    {open.accessoriesMovil ? (
+                      // flechita top
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="30"
+                        viewBox="0 0 24 24"
+                        style={{ fill: "#ffd904" }}
+                        onClick={() => submitFalse("accessoriesMovil")}
+                      >
+                        <path d="m6.293 13.293 1.414 1.414L12 10.414l4.293 4.293 1.414-1.414L12 7.586z"></path>
+                      </svg>
+                    ) : (
+                      // flechita bottom
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="30"
+                        viewBox="0 0 24 24"
+                        style={{ fill: "#ffd904" }}
+                        onClick={() => submitTrue("accessoriesMovil")}
+                      >
+                        <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
+                      </svg>
+                    )}
                     ACCESORIOS
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="30"
-                      height="30"
-                      viewBox="0 0 24 24"
-                      style={{ fill: "#ffd904" }}
-                    >
-                      <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
-                    </svg>
                   </summary>
                   <div className={styles.dropDownsButtonsMovil}>
                     <a href="/catalogs/accesorio">
-                      <button className={styles.title}>ACCESORIOS</button>
+                      <button className={styles.title}>TODO</button>
                     </a>
                     <a href="/catalogs/accesorio/pelota">Pelotas</a>
                     <a href="/catalogs/accesorio/gorra">Gorras</a>
@@ -367,9 +422,11 @@ const NavBar = () => {
                     <a href="/catalogs/deporte/voley">Voley</a>
                   </div>
                 </details>
-                <a href="/faqs">
-                  <span>PREGUNTAS FRECUENTES</span>
-                </a>
+                <div className={styles.question}>
+                  <a href="/faqs">
+                    <span>PREGUNTAS FRECUENTES</span>
+                  </a>
+                </div>
               </div>
             </div>
           )}

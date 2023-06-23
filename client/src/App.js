@@ -5,7 +5,6 @@ import { Route } from "react-router-dom";
 import NavBar from "./components/navBar/navBar";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://back-production-c55d.up.railway.app/";
 // axios.defaults.baseURL = "https://localhost:3001/";
 
 function App() {
