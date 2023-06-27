@@ -2,14 +2,15 @@ import React, { useEffect } from "react";
 import styles from "./styles.module.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductByName } from "../../redux/actions";
+import { getProductByName, getTags } from "../../redux/actions";
 import CardNav from "../cradsNavBar/cardsNav";
+import NotFound from "../notFound/notFound";
 
 const SearchBar = () => {
   const [name, setName] = useState("");
   const dispatch = useDispatch();
   const productsSelected = useSelector((state) => state.search);
-  // const products = useSelector((state) => state.products);
+  const tags = useSelector((state) => state.tags);
 
   const clearInput = () => {
     setName("");
@@ -18,20 +19,23 @@ const SearchBar = () => {
   const handlerChanges = (event) => {
     const value = event.target.value;
     setName((s) => (s = value));
-    // console.log(productsSelected, "++++++++++");
   };
 
   const submit = (event) => {
     event.preventDefault();
     dispatch(getProductByName(name));
-    // console.log(productsSelected, "----------");
+    // console.log(productsSelected);
   };
 
   useEffect(() => {
     if (name !== "") {
       dispatch(getProductByName(name));
+      // console.log(productsSelected, "+");
     }
-  }, [dispatch, name]);
+    if (!tags.length) {
+      dispatch(getTags());
+    }
+  }, [dispatch, name, tags]);
 
   return (
     <div className={styles.searchBar}>
@@ -61,20 +65,49 @@ const SearchBar = () => {
           </svg>
         </button>
       </form>
-      <div className={styles.containerCards}>
-        {productsSelected &&
-          productsSelected.map((product) => (
-            <CardNav
-              name={product.name}
-              img={product.image[0]}
-              category={product.category}
-              score={product.score}
-              tags={product.tags}
-              id={product.id}
-              key={product.id}
-            />
-          ))}
-      </div>
+      {name !== "" && (
+        <div className={styles.containerCards}>
+          <div className={styles.lateral}>
+            <div className={styles.title}>
+              <span>SUGERENCIAS</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                style={{ fill: "#f5f5f5" }}
+              >
+                <path d="M16.939 7.939 12 12.879l-4.939-4.94-2.122 2.122L12 17.121l7.061-7.06z"></path>
+              </svg>
+            </div>
+            {tags?.map((tag) => (
+              <a href={`/catalogs/deporte/${tag}`} key={tag.length}>
+                {tag}
+              </a>
+            ))}
+            <a href={`/catalogs/${name}`}>
+              <p>VER TODO DE "{`${name}`}"</p>
+            </a>
+          </div>
+          <div className={styles.results}>
+            {productsSelected.length ? (
+              productsSelected?.map((product) => (
+                <CardNav
+                  name={product.name}
+                  img={product.image[0]}
+                  category={product.category}
+                  score={product.score}
+                  tags={product.tags}
+                  id={product.id}
+                  key={product.id}
+                />
+              ))
+            ) : (
+              <NotFound></NotFound>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

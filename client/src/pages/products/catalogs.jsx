@@ -2,38 +2,27 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { getByCategory, getP, getByCategoryAndName } from "../../redux/actions";
-// import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 import Cards from "../../components/containerCards/cards";
 import PreFooter from "../../components/preFooter/preFooter";
 import Footer from "../../components/footer/footer";
 import Filter from "../../components/filters/filter";
-import Pages from "../../components/paginated/paginated";
 import Loader from "../../components/loader/loader";
+// import Pages from "../../components/paginated/paginated";
+// import NotFound from "../../components/notFound/notFound";
 
 import styles from "./styles.module.css";
-import NotFound from "../../components/notFound/notFound";
 
 const Catalogs = (props) => {
   const products = useSelector((state) => state.products);
-  // const featured = useSelector((state) => state.featured);
-  const dispatch = useDispatch();
   const params = useParams();
+  const dispatch = useDispatch();
+
   let category = params.category;
   let name = params.name;
   // console.log(name);
 
-  const [indexPage, setIndexPage] = useState(1);
-  const [byPage] = useState(12);
-
-  // const [cuantity, setCuantity] = useState([]);
   const [order, setOrder] = useState("");
-
-  // let hasta = indexPage * 8 + 8;
-  let maximo = Math.ceil(products.length / byPage);
-  // console.log(maximo);
-
-  // const [filters, setFilters] = useState([]);
 
   useEffect(() => {
     if (category === "all") {
@@ -45,20 +34,7 @@ const Catalogs = (props) => {
     }
   }, []);
 
-  useEffect(() => {
-    // Array.isArray(products) &&
-    // setCuantity(() => products.slice(indexPage * 8, hasta)); //una parte del array desde/hasta
-  }, [products, indexPage, order]);
-
-  // const prevPage = () => {
-  //   if (indexPage === 0) return;
-  //   setIndexPage((index) => index - 1);
-  //   props.inputEvent(setIndexPage);
-  // };
-
-  // const nextPage = () => {
-  //   hasta < products.length && setIndexPage((index) => index + 1);
-  // };
+  useEffect(() => {}, [order]);
 
   return (
     <div className={styles.catalogs}>
@@ -84,13 +60,6 @@ const Catalogs = (props) => {
         </div>
         <div className={styles.row}>
           <Cards products={products} category={category} name={name} />
-          {/* <Pages
-            // nextPage={nextPage}
-            // prevPage={prevPage}
-            index={indexPage}
-            setPage={setIndexPage}
-            max={maximo}
-          /> */}
         </div>
       </div>
       <PreFooter />

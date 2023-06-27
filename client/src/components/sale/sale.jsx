@@ -7,7 +7,7 @@ export default function Sale() {
       <div className={styles.title}>
         {/* <h1>HOT SALE</h1> */}
         <img
-          src="https://i.ibb.co/vcwTXdt/1687228022399.png"
+          src="https://i.ibb.co/5cFKG7J/Picsart-23-06-23-11-54-12-862.png"
           alt="medias"
           className={styles.photo}
         />

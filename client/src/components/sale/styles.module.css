@@ -37,18 +37,15 @@
 }
 
 .title {
-  /* background-color: green; */
   width: 30%;
 }
 
 .title > .photo {
   width: 17em;
 
-  position: absolute;
-  rotate: -70deg;
-  left: 0;
-  margin-left: 7em;
-
+  /* position: absolute; */
+  rotate: -10deg;
+  /* left: 5; */
   filter: drop-shadow(-14px -2px 10px rgba(0, 0, 0, 0.575));
 }
 
@@ -76,6 +73,8 @@
 .info > a {
   text-decoration: none;
 }
+
+/* *************************** */
 
 .cta {
   display: flex;
@@ -161,13 +160,13 @@
   }
 }
 
+/* ************************ */
 @media (max-width: 730px) {
   .sale > .title {
-    /* background-color: red; */
     width: 80%;
   }
+
   .sale {
-    /* background-color: green; */
     display: flex;
     flex-direction: column;
   }

@@ -18,12 +18,12 @@ const PreFooter = () => {
           {/* <a href="/catalogs/marcas">Marcas</a> */}
         </div>
         <div className={styles.one}>
-          <a href="/catalogs/deporte">
+          <a href="/catalogs/all">
             <h4>DEPORTE</h4>
           </a>
-          <a href="/catalogs/deporte/argentina">Seleccon Arg</a>
+          <a href="/catalogs/deporte/seleccion">Seleccon Arg</a>
           <a href="/catalogs/deporte/river">River Plate</a>
-          <a href="/catalogs/deporte/boca">boquita</a>
+          <a href="/catalogs/deporte/boca">boca</a>
           <a href="/catalogs/deporte/futbol">Fútbol</a>
           <a href="/catalogs/deporte/basquet">Básquet</a>
         </div>

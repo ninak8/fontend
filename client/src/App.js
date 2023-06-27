@@ -4,7 +4,6 @@ import { Home, Detail, Faqs, Create, Catalogs } from "./pages/index";
 import { Route } from "react-router-dom";
 import NavBar from "./components/navBar/navBar";
 import axios from "axios";
-
 // axios.defaults.baseURL = "https://localhost:3001/";
 
 function App() {

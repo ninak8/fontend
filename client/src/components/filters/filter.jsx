@@ -33,6 +33,7 @@ const Filter = ({ products, setOrder }) => {
 
   const filterBySize = (e) => {
     const value = e.target.value;
+    // console.log(products);s
     const selectedSizes = products.filter((elem) => elem.sizes.includes(value));
     setSelections([...selection, value]);
     dispatch(filter(selectedSizes));
@@ -104,9 +105,11 @@ const Filter = ({ products, setOrder }) => {
                   <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
                 </svg>
               </button>
-              <span value="remove" onClick={removeFilters}>
-                remover filtros
-              </span>
+              {selection != false && (
+                <span value="remove" onClick={removeFilters}>
+                  remover filtros
+                </span>
+              )}
             </div>
           </div>
           {selection && (
@@ -210,7 +213,7 @@ const Filter = ({ products, setOrder }) => {
                   <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
                 </svg>
               </summary>
-              <option onClick={(e) => filterByTag(e)} value="fútbol">
+              <option onClick={(e) => filterByTag(e)} value="futbol">
                 FÚTBOL
               </option>
               <option onClick={(e) => filterByTag(e)} value="tenis">
@@ -278,7 +281,7 @@ const Filter = ({ products, setOrder }) => {
                 HOMBRE
               </option>
             </details>
-            <button>FILTRAR</button>
+            {/* <button>FILTRAR</button> */}
           </div>
         </div>
       )}

@@ -141,7 +141,7 @@ const Faqs = () => {
               CONTACTANOS
             </a>
           </div>
-          <div className={styles.childrens}>
+          {/* <div className={styles.childrens}>
             <h3>NIDEA JEJEJEEJEJEJ</h3>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -150,7 +150,7 @@ const Faqs = () => {
             </p>
             <br />
             <a href="#">WHATSAPP</a>
-          </div>
+          </div> */}
         </div>
       </div>
       <PreFooter></PreFooter>

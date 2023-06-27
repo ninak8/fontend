@@ -54,7 +54,11 @@ const NavBar = () => {
     <div className={styles.navBar}>
       <div className={styles.center}>
         <a href="/">
-          <img src={icon} alt="logo MD" className={styles.icon} />
+          <img
+            src="https://i.ibb.co/XxKd25d/Picsart-23-06-13-16-44-51-813.png"
+            alt="logo MD"
+            className={styles.icon}
+          />
         </a>
         <div onMouseLeave={handleMouseOut} className={styles.containerButtons}>
           <div
@@ -95,12 +99,12 @@ const NavBar = () => {
                   width={170}
                   height={130}
                 />
-                <a href="/catalogs?q=ropa?q=novedades">Novedades</a>
+                <a href="/catalogs/ropa/novedades">Novedades</a>
                 <a href="/catalogs/ropa/remera">Remeras</a>
                 <a href="/catalogs/ropa/pantalon">Pantalones</a>
                 <a href="/catalogs/ropa/camiseta">Camisetas de fútbol</a>
                 <a href="/catalogs/ropa/short">Shorts</a>
-                <a href="/catalogs/ropa?q=Rop-original">Originales</a>
+                {/* <a href="/catalogs/ropa?q=Rop-original">Originales</a> */}
               </div>
               <div className={styles.dropDownsButtons}>
                 {/* <a href="/catalogs?q=accesorio"> */}
@@ -117,7 +121,7 @@ const NavBar = () => {
                 <a href="/catalogs/accesorio/pelota">Pelotas</a>
                 <a href="/catalogs/accesorio/gorra">Gorras</a>
                 <a href="/catalogs/accesorio/media">Medias</a>
-                <a href="/catalogs?q=accesorio?q=guante">Guantes</a>
+                <a href="/catalogs/accesorio/guante">Guantes</a>
               </div>
               <div className={styles.dropDownsButtons}>
                 <a href="/catalogs/deporte">
@@ -130,6 +134,7 @@ const NavBar = () => {
               </div>
             </div>
           )}
+          {/* //?--------------------------*/}
           <div
             onMouseOver={() => handleMouse("accessories")}
             className={styles.principalButton}
@@ -150,7 +155,7 @@ const NavBar = () => {
                   width={175}
                   height={100}
                 />
-                <a href="/catalogs/accesorio?q=novedades">Novedades</a>
+                <a href="/catalogs/accesorio/novedades">Novedades</a>
                 <a href="/catalogs/accesorio/guantes">Gauntes</a>
                 <a href="/catalogs/accesorio/canilleras">Canilleras</a>
                 <a href="/catalogs/accesorio/medias">Medias</a>
@@ -171,7 +176,7 @@ const NavBar = () => {
                   width={155}
                   height={100}
                 />
-                <a href="/catalogs/accesorio?q=novedades">Novedades</a>
+                <a href="/catalogs/accesorio/novedades">Novedades</a>
                 <a href="/catalogs/accesorio/pelotas">Pelotas</a>
                 <a href="/catalogs/accesorio/red">Red</a>
                 <a href="/catalogs/accesorio/shorts">Shorts</a>
@@ -223,6 +228,7 @@ const NavBar = () => {
             </a>
           </div>
         </div>
+        {/* //!----------------------------------------------------------------------------------------------------- */}
         <div className={styles.movil}>
           <button
             onClick={() => handleMouse("search")}
@@ -301,127 +307,138 @@ const NavBar = () => {
                   </svg>
                 </button>
               </div>
-
+              {/* +++++++++++ OPTIONS +++++++++++++ */}
               <div className={styles.options}>
-                <details>
-                  <summary>
-                    {open.allMovil ? (
-                      // flechita top
+                <div>
+                  {open.allMovil ? (
+                    // flechita top
+                    <button onClick={() => submitFalse("allMovil")}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="30"
                         height="30"
                         viewBox="0 0 24 24"
                         style={{ fill: "#ffd904" }}
-                        onClick={() => submitFalse("allMovil")}
                       >
                         <path d="m6.293 13.293 1.414 1.414L12 10.414l4.293 4.293 1.414-1.414L12 7.586z"></path>
                       </svg>
-                    ) : (
-                      // flechita bottom
+                      TODO
+                    </button>
+                  ) : (
+                    // flechita bottom
+                    <button onClick={() => submitTrue("allMovil")}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="30"
                         height="30"
                         viewBox="0 0 24 24"
                         style={{ fill: "#ffd904" }}
-                        onClick={() => submitTrue("allMovil")}
                       >
                         <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
                       </svg>
-                    )}
-                    TODO
-                  </summary>
-                  <div className={styles.dropDownsButtonsMovil}>
-                    <a href="/catalogs/calzado">
-                      <button className={styles.title}>CALZADOS</button>
-                    </a>
-                    <a href="/catalogs/all">Todo</a>
-                    <a href="/catalogs/calzado/novedades">Novedades</a>
-                    <a href="/catalogs/calzado/botines">Botínes</a>
-                    <a href="/catalogs?q=calzado?q=Cal-originales">
-                      Originales
-                    </a>
+                      TODO
+                    </button>
+                  )}
+                </div>
+                {open.allMovil && (
+                  <div>
+                    <div className={styles.dropDownsButtonsMovil}>
+                      <a href="/catalogs/calzado">
+                        <button className={styles.title}>CALZADOS</button>
+                      </a>
+                      <a href="/catalogs/all">Todo</a>
+                      <a href="/catalogs/calzado/novedades">Novedades</a>
+                      <a href="/catalogs/calzado/botines">Botínes</a>
+                      <a href="/catalogs?q=calzado?q=Cal-originales">
+                        Originales
+                      </a>
+                    </div>
+                    <div className={styles.dropDownsButtonsMovil}>
+                      <a href="/catalogs/ropa">
+                        <button className={styles.title}>ROPA</button>
+                      </a>
+                      <a href="/catalogs?q=ropa?q=novedades">Novedades</a>
+                      <a href="/catalogs/ropa/remera">Remeras</a>
+                      <a href="/catalogs/ropa/pantalon">Pantalones</a>
+                      <a href="/catalogs/ropa/camiseta">Camisetas de fútbol</a>
+                      <a href="/catalogs/ropa/short">Shorts</a>
+                      <a href="/catalogs/ropa?q=Rop-original">Originales</a>
+                    </div>
+                    <div className={styles.dropDownsButtonsMovil}>
+                      <a href="/catalogs/accesorio">
+                        <button className={styles.title}>ACCESORIOS</button>
+                      </a>
+                      <a href="/catalogs/accesorio/pelota">Pelotas</a>
+                      <a href="/catalogs/accesorio/gorra">Gorras</a>
+                      <a href="/catalogs/accesorio/media">Medias</a>
+                      <a href="/catalogs?q=accesorio?q=guante">Guantes</a>
+                    </div>
+                    <div className={styles.dropDownsButtonsMovil}>
+                      <a href="/catalogs/deporte">
+                        <button className={styles.title}>DEPORTE</button>
+                      </a>
+                      <a href="/catalogs/deporte/futbol">Fútbol</a>
+                      <a href="/catalogs/deporte/basquet">Básquet</a>
+                      <a href="/catalogs/deporte/tenis">Tenis</a>
+                      <a href="/catalogs/deporte/voley">Voley</a>
+                    </div>
                   </div>
-                  <div className={styles.dropDownsButtonsMovil}>
-                    <a href="/catalogs/ropa">
-                      <button className={styles.title}>ROPA</button>
-                    </a>
-                    <a href="/catalogs?q=ropa?q=novedades">Novedades</a>
-                    <a href="/catalogs/ropa/remera">Remeras</a>
-                    <a href="/catalogs/ropa/pantalon">Pantalones</a>
-                    <a href="/catalogs/ropa/camiseta">Camisetas de fútbol</a>
-                    <a href="/catalogs/ropa/short">Shorts</a>
-                    <a href="/catalogs/ropa?q=Rop-original">Originales</a>
-                  </div>
-                  <div className={styles.dropDownsButtonsMovil}>
-                    <a href="/catalogs/accesorio">
-                      <button className={styles.title}>ACCESORIOS</button>
-                    </a>
-                    <a href="/catalogs/accesorio/pelota">Pelotas</a>
-                    <a href="/catalogs/accesorio/gorra">Gorras</a>
-                    <a href="/catalogs/accesorio/media">Medias</a>
-                    <a href="/catalogs?q=accesorio?q=guante">Guantes</a>
-                  </div>
-                  <div className={styles.dropDownsButtonsMovil}>
-                    <a href="/catalogs/deporte">
-                      <button className={styles.title}>DEPORTE</button>
-                    </a>
-                    <a href="/catalogs/deporte/futbol">Fútbol</a>
-                    <a href="/catalogs/deporte/basquet">Básquet</a>
-                    <a href="/catalogs/deporte/tenis">Tenis</a>
-                    <a href="/catalogs/deporte/voley">Voley</a>
-                  </div>
-                </details>
+                )}
 
-                <details>
-                  <summary>
-                    {open.accessoriesMovil ? (
-                      // flechita top
+                <div>
+                  {open.accessoriesMovil ? (
+                    // flechita top
+                    <button onClick={() => submitFalse("accessoriesMovil")}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="30"
                         height="30"
                         viewBox="0 0 24 24"
                         style={{ fill: "#ffd904" }}
-                        onClick={() => submitFalse("accessoriesMovil")}
                       >
                         <path d="m6.293 13.293 1.414 1.414L12 10.414l4.293 4.293 1.414-1.414L12 7.586z"></path>
                       </svg>
-                    ) : (
-                      // flechita bottom
+                      ACCESORIOS
+                    </button>
+                  ) : (
+                    // flechita bottom
+                    <button onClick={() => submitTrue("accessoriesMovil")}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="30"
                         height="30"
                         viewBox="0 0 24 24"
                         style={{ fill: "#ffd904" }}
-                        onClick={() => submitTrue("accessoriesMovil")}
                       >
                         <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
                       </svg>
-                    )}
-                    ACCESORIOS
-                  </summary>
-                  <div className={styles.dropDownsButtonsMovil}>
-                    <a href="/catalogs/accesorio">
-                      <button className={styles.title}>TODO</button>
-                    </a>
-                    <a href="/catalogs/accesorio/pelota">Pelotas</a>
-                    <a href="/catalogs/accesorio/gorra">Gorras</a>
-                    <a href="/catalogs/accesorio/media">Medias</a>
-                    <a href="/catalogs?q=accesorio?q=guante">Guantes</a>
+                      ACCESORIOS
+                    </button>
+                  )}
+                </div>
+
+                {open.accessoriesMovil && (
+                  <div>
+                    <div className={styles.dropDownsButtonsMovil}>
+                      <a href="/catalogs/accesorio">
+                        <button className={styles.title}>TODO</button>
+                      </a>
+                      <a href="/catalogs/accesorio/pelota">Pelotas</a>
+                      <a href="/catalogs/accesorio/gorra">Gorras</a>
+                      <a href="/catalogs/accesorio/media">Medias</a>
+                      <a href="/catalogs?q=accesorio?q=guante">Guantes</a>
+                    </div>
+                    <div className={styles.dropDownsButtonsMovil}>
+                      <a href="/catalogs/deporte">
+                        <button className={styles.title}>DEPORTE</button>
+                      </a>
+                      <a href="/catalogs/deporte/futbol">Fútbol</a>
+                      <a href="/catalogs/deporte/basquet">Básquet</a>
+                      <a href="/catalogs/deporte/tenis">Tenis</a>
+                      <a href="/catalogs/deporte/voley">Voley</a>
+                    </div>
                   </div>
-                  <div className={styles.dropDownsButtonsMovil}>
-                    <a href="/catalogs/deporte">
-                      <button className={styles.title}>DEPORTE</button>
-                    </a>
-                    <a href="/catalogs/deporte/futbol">Fútbol</a>
-                    <a href="/catalogs/deporte/basquet">Básquet</a>
-                    <a href="/catalogs/deporte/tenis">Tenis</a>
-                    <a href="/catalogs/deporte/voley">Voley</a>
-                  </div>
-                </details>
+                )}
                 <div className={styles.question}>
                   <a href="/faqs">
                     <span>PREGUNTAS FRECUENTES</span>

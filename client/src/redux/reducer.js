@@ -8,12 +8,14 @@ import {
   ORDER_BY_PRICE,
   GET_BY_CATEGORY,
   CLEAN_DETAIL,
+  //** tags **
+  GET_TAGS,
 } from "./actions";
 
 const initialState = {
   products: [],
   detail: {},
-  Tags: [],
+  tags: [],
   featured: [],
   search: [],
   // brands: [],
@@ -81,6 +83,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         products: sort,
+      };
+
+    // ****** TAGS ****** //
+    case GET_TAGS:
+      return {
+        ...state,
+        tags: action.payload,
       };
     default:
       return {
