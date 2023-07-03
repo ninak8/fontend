@@ -1,32 +1,29 @@
 .pages {
-  /* background-color: red; */
-  width: auto;
-
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 
   margin-top: 2em;
 }
 
-.pages > .button {
-  /* background-color: green; */
-
-  padding: 5px 5px 2px 5px;
-  border-radius: 50%;
+.pages > button {
+  padding: 8px 12px;
+  margin: 0 8px 5px 0;
   border: none;
   cursor: pointer;
 
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-.pages .button:active {
+.pages button:active {
   transform: translateY(2px);
 }
 
 .pages > span {
   /* background-color: aqua; */
-  font-family: "Barlow", sans-serif;
   font-size: 20px;
 }

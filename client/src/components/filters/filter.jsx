@@ -114,8 +114,10 @@ const Filter = ({ products, setOrder }) => {
           </div>
           {selection && (
             <div className={styles.selections}>
-              {selection.map((elem) => (
-                <span className={styles.select}>{elem}</span>
+              {selection.map((elem, i) => (
+                <span key={i} className={styles.select}>
+                  {elem}
+                </span>
               ))}
             </div>
           )}

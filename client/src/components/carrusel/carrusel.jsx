@@ -32,7 +32,7 @@ export default function Carousel() {
         >
           {data.img.map((link, i) => {
             return (
-              <SwiperSlide key={i}>
+              <SwiperSlide key={link}>
                 <img src={link} alt={i} />
               </SwiperSlide>
             );
@@ -55,7 +55,7 @@ export default function Carousel() {
         >
           {data.tablet.map((link, i) => {
             return (
-              <SwiperSlide key={i}>
+              <SwiperSlide key={link}>
                 <img src={link} alt={i} />
               </SwiperSlide>
             );
@@ -78,7 +78,7 @@ export default function Carousel() {
         >
           {data.movil.map((link, i) => {
             return (
-              <SwiperSlide key={i}>
+              <SwiperSlide key={link}>
                 <img src={link} alt={i} />
               </SwiperSlide>
             );

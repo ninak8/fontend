@@ -192,6 +192,12 @@
   color: #ffd904;
 }
 
+@media (max-width: 865px) {
+  .dropDownsButtons details > option:active {
+    transform: translateY(2px);
+  }
+}
+
 @media (max-width: 600px) {
   .dropDowns {
     width: 30em;

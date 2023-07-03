@@ -1,9 +1,10 @@
 import React from "react";
 import "./App.css";
-import { Home, Detail, Faqs, Create, Catalogs } from "./pages/index";
+import { Home, Detail, Faqs, Catalogs } from "./pages/index";
 import { Route } from "react-router-dom";
 import NavBar from "./components/navBar/navBar";
 import axios from "axios";
+
 // axios.defaults.baseURL = "https://localhost:3001/";
 
 function App() {
@@ -20,18 +21,13 @@ function App() {
       </Route>
 
       <Route exact path="/">
-        <Home />
+        <Home inputEvent={eventInput} />
       </Route>
 
       <Route
         path="/detail/:id"
         render={({ match }) => <Detail id={match.params.id} />}
       />
-      {/* 
-      <Route exact path="/form">
-        <Create />
-      </Route> */}
-
       <Route exact path="/faqs">
         <Faqs />
       </Route>

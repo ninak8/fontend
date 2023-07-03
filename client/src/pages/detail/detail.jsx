@@ -33,7 +33,7 @@ const Detail = ({ id }) => {
             <div className={styles.one}>
               <div className={styles.tags}>
                 {Array.isArray(productByID.tags) ? (
-                  productByID.tags.map((tag) => <span>/ {tag}</span>)
+                  productByID.tags.map((tag, i) => <span key={i}>/ {tag}</span>)
                 ) : (
                   <span>- -</span>
                 )}
@@ -49,7 +49,9 @@ const Detail = ({ id }) => {
                 <p>Talles disponibles:</p>
                 <div>
                   {Array.isArray(productByID.sizes) ? (
-                    productByID.sizes.map((size) => <span>{size}</span>)
+                    productByID.sizes.map((size, i) => (
+                      <span key={i}>{size}</span>
+                    ))
                   ) : (
                     <span>No hay talles</span>
                   )}
@@ -58,7 +60,9 @@ const Detail = ({ id }) => {
                   <p>Colores disponibles:</p>
                   <div>
                     {Array.isArray(productByID.colors) ? (
-                      productByID.colors.map((color) => <span>{color}</span>)
+                      productByID.colors.map((color, i) => (
+                        <span key={i}>{color}</span>
+                      ))
                     ) : (
                       <span>No hay Colores disponibles</span>
                     )}
@@ -66,8 +70,8 @@ const Detail = ({ id }) => {
                 </div>
                 <div className={styles.images}>
                   {Array.isArray(productByID.image) ? (
-                    productByID.image.map((img) => (
-                      <img src={img} alt="product" />
+                    productByID.image.map((img, i) => (
+                      <img src={img} alt="product" key={i} />
                     ))
                   ) : (
                     <span>-</span>

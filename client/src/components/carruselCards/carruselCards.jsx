@@ -44,7 +44,7 @@ export default function Carrusel(props) {
         >
           {props.featured.map((elem, id) => {
             return (
-              <SwiperSlide key={id}>
+              <SwiperSlide key={elem.id}>
                 <Card
                   name={elem.name}
                   id={elem.id}
@@ -69,7 +69,7 @@ export default function Carrusel(props) {
         >
           {props.featured.map((elem, id) => {
             return (
-              <SwiperSlide key={id}>
+              <SwiperSlide key={elem.id}>
                 <Card
                   name={elem.name}
                   id={elem.id}
@@ -94,7 +94,7 @@ export default function Carrusel(props) {
         >
           {props.featured.map((elem, id) => {
             return (
-              <SwiperSlide key={id}>
+              <SwiperSlide key={elem.id}>
                 <Card
                   name={elem.name}
                   id={elem.id}
@@ -119,7 +119,7 @@ export default function Carrusel(props) {
         >
           {props.featured.map((elem, id) => {
             return (
-              <SwiperSlide key={id}>
+              <SwiperSlide key={elem.id}>
                 <Card
                   name={elem.name}
                   id={elem.id}

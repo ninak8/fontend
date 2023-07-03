@@ -49,7 +49,12 @@ export const getByCategory = (category) => {
   return async (dispatch) => {
     try {
       const byCategory = await axios.get(`filters/${category}`);
-      const result = byCategory.data;
+      let result = byCategory.data;
+      if (result == false) {
+        result = [null];
+        // console.log(result);
+        dispatch({ type: GET_BY_CATEGORY, payload: result });
+      }
       dispatch({ type: GET_BY_CATEGORY, payload: result });
     } catch (error) {
       console.error(error);

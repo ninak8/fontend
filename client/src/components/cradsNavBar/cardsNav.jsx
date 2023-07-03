@@ -31,7 +31,9 @@ const CardNav = ({ name, id, category, img, score, tags }) => {
           <span>{name}</span>
           <span>{category}</span>
           <div className={styles.tags}>
-            {Array.isArray(tags) ? tags.map((tag) => <p>/{tag}</p>) : null}
+            {Array.isArray(tags)
+              ? tags.map((tag, i) => <p key={i}>/{tag}</p>)
+              : null}
           </div>
         </div>
       </a>

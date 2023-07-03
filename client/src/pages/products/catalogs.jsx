@@ -8,10 +8,10 @@ import PreFooter from "../../components/preFooter/preFooter";
 import Footer from "../../components/footer/footer";
 import Filter from "../../components/filters/filter";
 import Loader from "../../components/loader/loader";
-// import Pages from "../../components/paginated/paginated";
-// import NotFound from "../../components/notFound/notFound";
+import Pages from "../../components/paginated/paginated";
 
 import styles from "./styles.module.css";
+import NotFound from "../../components/notFound/notFound";
 
 const Catalogs = (props) => {
   const products = useSelector((state) => state.products);
@@ -20,9 +20,17 @@ const Catalogs = (props) => {
 
   let category = params.category;
   let name = params.name;
-  // console.log(name);
 
   const [order, setOrder] = useState("");
+
+  // ******************* paginate
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(8);
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = products.slice(firstPostIndex, lastPostIndex);
 
   useEffect(() => {
     if (category === "all") {
@@ -38,7 +46,6 @@ const Catalogs = (props) => {
 
   return (
     <div className={styles.catalogs}>
-      {!products.length && <Loader />}
       <div className={styles.catalogsOne}>
         <div className={styles.top}>
           {/* aca con el historial de location creo */}
@@ -59,7 +66,18 @@ const Catalogs = (props) => {
           <Filter products={products} setOrder={setOrder} />
         </div>
         <div className={styles.row}>
-          <Cards products={products} category={category} name={name} />
+          <Cards products={currentPosts} category={category} name={name} />
+          {products[0] == null ? (
+            <NotFound />
+          ) : !products.length ? (
+            <Loader />
+          ) : null}
+          <Pages
+            totalPosts={products.length}
+            postsPerPage={postsPerPage}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
         </div>
       </div>
       <PreFooter />
