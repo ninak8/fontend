@@ -1,11 +1,14 @@
 import React from "react";
-import "./App.css";
-import { Home, Detail, Faqs, Catalogs } from "./pages/index";
 import { Route } from "react-router-dom";
-import NavBar from "./components/navBar/navBar";
 import axios from "axios";
 
-// axios.defaults.baseURL = "https://localhost:3001/";
+import { Home, Detail, Faqs, Catalogs, IAM, Map } from "./pages/index";
+import NavBar from "./components/navBar/navBar";
+import "./App.css";
+import { Footer, PreFooter } from "./components";
+
+axios.defaults.baseURL = "https://back-production-c55d.up.railway.app/";
+// axios.defaults.baseURL = "http://localhost:3001/";
 
 function App() {
   const eventInput = (setPaging) => {
@@ -25,8 +28,10 @@ function App() {
       </Route>
 
       <Route
-        path="/detail/:id"
-        render={({ match }) => <Detail id={match.params.id} />}
+        path="/detail/:id/:category"
+        render={({ match }) => (
+          <Detail id={match.params.id} category={match.params.category} />
+        )}
       />
       <Route exact path="/faqs">
         <Faqs />
@@ -39,6 +44,17 @@ function App() {
       <Route exact path="/catalogs/:category">
         <Catalogs inputEvent={eventInput} />
       </Route>
+
+      <Route exact path="/iam">
+        <IAM />
+      </Route>
+
+      <Route exact path="/map">
+        <Map />
+      </Route>
+      {/* <-------- --------> */}
+      <PreFooter />
+      <Footer />
     </div>
   );
 }

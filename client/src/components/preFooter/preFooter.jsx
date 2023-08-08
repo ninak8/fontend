@@ -1,4 +1,5 @@
 import React from "react";
+import icon from "../../images/icon.png";
 import styles from "./styles.module.css";
 
 const PreFooter = () => {
@@ -33,20 +34,23 @@ const PreFooter = () => {
           <a href="#">
             <h4>ASISTENCIA</h4>
           </a>
-          {/* <img src={img} alt="boton" /> */}
-          <button>--------</button>
+          <button>
+            <img src={icon} alt="iconMD" height={70} width={70} />
+          </button>
           <a href="/faqs">Preguntas Frecuentes</a>
           <span>Guias de Tallas</span>
           <span>Mapa del Sitio</span>
-          <span>Realizar Pedidos</span>
-          <span>Personalizados</span>
+          <a href="https://wa.me/541161320815" target="_blank">
+            Realizar Pedidos
+          </a>
+          {/* <span>Personalizados</span> */}
         </div>
 
         <div className={styles.one}>
           <a href="#">
             <h4>INFORMACIÓN DE LA EMPRESA</h4>
           </a>
-          <span>Acerca de MD</span>
+          <a href="/iam">Acerca de MD</a>
           <a href="#">
             <h4>SEGUINOS</h4>
           </a>

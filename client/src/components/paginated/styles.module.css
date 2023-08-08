@@ -1,8 +1,10 @@
 .pages {
+  width: 100%;
+  max-width: 70em;
+
   display: flex;
   justify-content: center;
   align-items: center;
-
   margin-top: 2em;
 }
 
@@ -15,6 +17,7 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 17px;
+
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }

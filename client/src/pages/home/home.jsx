@@ -1,21 +1,28 @@
-import React from "react";
-// import img from "../../images/ejemplo.png";
-import styles from "./styles.module.css";
-import Carrusel from "../../components/carruselCards/carruselCards";
-import PreFooter from "../../components/preFooter/preFooter";
-import Footer from "../../components/footer/footer";
-import Carousel from "../../components/carrusel/carrusel";
-import Sale from "../../components/sale/sale";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getFeatured, getP } from "../../redux/actions";
-import Loader from "../../components/loader/loader";
+
+import { getFeatured, getImages, getP } from "../../redux/actions";
+import {
+  Carrusel,
+  Carousel,
+  Sale,
+  Loader,
+  Equipment,
+  Warning,
+} from "../../components/index";
+
+import styles from "./styles.module.css";
+import Sports from "../../components/deportes/sports";
+import Whatsapp from "../../components/sale/whatsapp";
 
 const Home = () => {
+  const [open, setOpen] = useState(true);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
   const featured = useSelector((state) => state.featured);
+  const images = useSelector((state) => state.images);
 
+  // console.log(products);
   useEffect(() => {
     if (!featured.length) {
       dispatch(getFeatured());
@@ -23,22 +30,27 @@ const Home = () => {
     if (!products.length) {
       dispatch(getP());
     }
-  }, [dispatch, featured, products]);
+    if (!images.length) {
+      dispatch(getImages());
+    }
+    window.localStorage.setItem("active", true);
+  }, [dispatch, featured, products, images]);
 
   return (
     <div className={styles.home}>
       {!products.length && !featured.length && <Loader />}
       <div className={styles.homeTop}>
         <div className={styles.contentCarr}>
-          <Carousel></Carousel>
+          <Carousel images={images} />
         </div>
+        <Equipment />
+        {open === true ? <Warning setOpen={setOpen} /> : null}
         <div className={styles.carrCards}>
           <Carrusel featured={featured}></Carrusel>
         </div>
       </div>
+      <Whatsapp />
       <Sale></Sale>
-      <PreFooter></PreFooter>
-      <Footer></Footer>
     </div>
   );
 };

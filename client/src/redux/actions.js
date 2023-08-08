@@ -1,6 +1,6 @@
 import axios from "axios";
-// const ERROR = "ERROR";
 export const GET_PRODUCTS = "GET_PRODUCTS";
+export const GET_BY_CATEGORY = "GET_BY_CATEGORY";
 export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
 export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID";
 export const NEW_PRODUCT = "NEW_PRODUCT";
@@ -9,6 +9,13 @@ export const MUTATE_PRODUCT = "MUTATE_PRODUCT";
 export const FILTER_CATEGORIES = "FILTER_CATEGORIES";
 export const FEATURED = "FEATURED";
 export const ORDER_BY_PRICE = "ORDER_BY_PRICE";
+export const GET_PRODUCT_QUERY = "GET_PRODUCT_QUERY";
+// <----->
+export const GET_ALL_COLORS = "GET_ALL_COLORS";
+export const GET_TAGS = "GET_TAGS";
+// <----->
+export const GET_IMAGES = "GET_IMAGES";
+export const GET_FAQS = "GET_FAQS";
 
 export const getP = () => {
   return (dispatch) => {
@@ -29,7 +36,7 @@ export const getFeatured = () => {
   };
 };
 
-// para la searchavar
+// para la searchabar
 export const getProductByName = (name) => {
   return async (dispatch) => {
     try {
@@ -43,7 +50,18 @@ export const getProductByName = (name) => {
   };
 };
 
-export const GET_BY_CATEGORY = "GET_BY_CATEGORY";
+export const getProductquery = (name) => {
+  return async (dispatch) => {
+    try {
+      const allProducts = await axios.get(`products?q=${name}`);
+      const result = allProducts.data;
+
+      dispatch({ type: GET_PRODUCT_QUERY, payload: result });
+    } catch (error) {
+      // dispatch({ type: ERROR, payload: error.response.data.error });
+    }
+  };
+};
 
 export const getByCategory = (category) => {
   return async (dispatch) => {
@@ -52,7 +70,7 @@ export const getByCategory = (category) => {
       let result = byCategory.data;
       if (result == false) {
         result = [null];
-        // console.log(result);
+
         dispatch({ type: GET_BY_CATEGORY, payload: result });
       }
       dispatch({ type: GET_BY_CATEGORY, payload: result });
@@ -128,10 +146,6 @@ export const cleanDetail = () => {
 
 // !------------------------------------------------------------------
 
-export const GET_TAGS = "GET_TAGS";
-export const CREATE_TAG = "CREATE_TAG";
-export const DELETE_TAG = "DELETE_TAG";
-
 export const getTags = () => {
   return async (dispatch) => {
     try {
@@ -145,37 +159,14 @@ export const getTags = () => {
   };
 };
 
-// cambiar en el back por un "findOrCreate"
-
-// export const createTag = async (data) =>{
-//   const newTag = await axios.post("localhost:3001/tags", data)
-//   return newTag
-// }
-
-export const deleteTag = (id) => {
-  return async (dispatch) => {
-    try {
-      const hasTagDelete = await axios.delete(`tags/${id}`);
-      dispatch({ type: DELETE_TAG, payload: hasTagDelete });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-};
-
 // !------------------------------------------------------------------ç
-
-export const GET_ALL_COLORS = "GET_ALL_COLORS";
-
-export const DELETE_COLOR = "DELETE_COLOR";
-export const CREATE_COLOR = "CREATE_COLOR";
 
 export const getAllColors = () => {
   return async (dispatch) => {
     try {
-      const hasColors = await axios.get("colors");
-      const result = hasColors.data;
-      dispatch({ type: GET_ALL_COLORS, payload: result });
+      const hasColors = (await axios.get("colors")).data;
+      // const result = hasColors.data;
+      dispatch({ type: GET_ALL_COLORS, payload: hasColors });
     } catch (error) {
       console.error(error);
     }
@@ -186,9 +177,6 @@ export const getAllColors = () => {
 
 export const GET_ALL_SIZE = "GET_ALL_SIZE";
 
-export const DELETE_SIZE = "DELETE_SIZE";
-export const CREATE_SIZE = "CREATE_SIZE";
-
 export const getAllSizes = () => {
   return async (dispatch) => {
     try {
@@ -198,5 +186,23 @@ export const getAllSizes = () => {
     } catch (error) {
       console.error(error);
     }
+  };
+};
+
+export const getFaqs = () => {
+  return (dispatch) => {
+    return axios
+      .get(`faqs`)
+      .then((res) => dispatch({ type: GET_FAQS, payload: res.data }))
+      .catch((error) => console.error(error));
+  };
+};
+
+export const getImages = () => {
+  return (dispatch) => {
+    return axios
+      .get(`images`)
+      .then((res) => dispatch({ type: GET_IMAGES, payload: res.data }))
+      .catch((error) => console.error(error));
   };
 };

@@ -21,7 +21,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* background-color: aqua; */
 }
 
 .faqs .bottom {
@@ -41,14 +40,25 @@
 }
 
 .questions {
-  background-color: #f5f5f5;
+  background-color: #e7e7e7;
   height: auto;
   width: 70%;
   margin-left: 24px;
   border-radius: 5px;
+
+  animation-name: showright;
+  animation-duration: 1s;
 }
 
-/* holis  */
+@keyframes showright {
+  from {
+    margin-left: -70%;
+  }
+  to {
+    margin-left: 24px;
+  }
+}
+
 .questions details > summary {
   font-size: 20px;
   font-family: "Sarabun", sans-serif;
@@ -75,7 +85,20 @@
 .noquestion {
   margin: 2em 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+
+  animation-name: viewNoQuestion;
+  animation-duration: 1s;
+}
+
+@keyframes viewNoQuestion {
+  from {
+    margin-left: -100%;
+  }
+  to {
+    margin-left: 0;
+  }
 }
 
 .noquestion > div {
@@ -100,7 +123,6 @@
 }
 
 .noquestion div > p {
-  /* background-color: red; */
   font-family: "Sarabun", sans-serif;
   font-size: 17px;
 }
@@ -111,9 +133,17 @@
 
 @media (max-width: 1100px) {
   .questions {
-    /* background-color: green; */
     width: 100%;
     margin: 0;
+  }
+
+  @keyframes showright {
+    from {
+      margin-left: -70%;
+    }
+    to {
+      margin-left: 0;
+    }
   }
 
   .faqs .bottom {

@@ -3,6 +3,7 @@ import {
   GET_PRODUCT_BY_NAME,
   NEW_PRODUCT,
   GET_PRODUCT_BY_ID,
+  GET_PRODUCT_QUERY,
   FEATURED,
   FILTERS,
   ORDER_BY_PRICE,
@@ -10,16 +11,22 @@ import {
   CLEAN_DETAIL,
   //** tags **
   GET_TAGS,
+  GET_FAQS,
+  GET_IMAGES,
+  GET_ALL_COLORS,
+  GET_ALL_SIZE,
 } from "./actions";
 
 const initialState = {
   products: [],
   detail: {},
-  tags: [],
   featured: [],
   search: [],
-  // brands: [],
-  // colors: []
+  faqs: [],
+  images: [],
+  tags: [],
+  sizes: [],
+  colors: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -38,6 +45,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         detail: action.payload,
+      };
+    case GET_PRODUCT_QUERY:
+      return {
+        ...state,
+        products: action.payload,
       };
     case NEW_PRODUCT:
       return {
@@ -90,6 +102,26 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         tags: action.payload,
+      };
+    case GET_ALL_SIZE:
+      return {
+        ...state,
+        sizes: action.payload,
+      };
+    case GET_ALL_COLORS:
+      return {
+        ...state,
+        colors: action.payload,
+      };
+    case GET_FAQS:
+      return {
+        ...state,
+        faqs: action.payload,
+      };
+    case GET_IMAGES:
+      return {
+        ...state,
+        images: action.payload,
       };
     default:
       return {

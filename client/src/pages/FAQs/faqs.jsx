@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getFaqs } from "../../redux/actions";
 // import CardFaq from "../../components/cardFaq/card";
-import styles from "./styles.module.css";
-import PreFooter from "../../components/preFooter/preFooter";
-import Footer from "../../components/footer/footer";
 // import faqs from "./faqs.json";
+import styles from "./styles.module.css";
 
 const Faqs = () => {
+  const dispatch = useDispatch();
+  const faqs = useSelector((state) => state.faqs);
+
+  useEffect(() => {
+    if (!faqs.length) {
+      dispatch(getFaqs());
+    }
+  }, [dispatch, faqs]);
+
   return (
     <div className={styles.faqs}>
       <div className={styles.faqsOne}>
@@ -13,48 +22,6 @@ const Faqs = () => {
           <span>PREGUNTAS FRECUENTES</span>
           {/*  */}
           <div className={styles.questions}>
-            <details>
-              <summary>
-                ¿Cual es la empresa responsable del envío de los productos?
-              </summary>
-              <p>
-                Los envios se realizan por diferentes plataformas como: Via
-                Cargo, Crucero Express, MD Cargas, Correo, OCA, Correo
-                Argentino, Andreani etc.
-              </p>
-            </details>
-            <details>
-              <summary>¿Realizamos envíos internacionales?</summary>
-              <p>Por el momento no realizamos</p>
-            </details>
-            {/* <details>
-            <summary>¿cuanto demora el envío?</summary>
-            <p>sepa judas</p>
-          </details> */}
-            <details>
-              <summary>¿Puedo comprar por teléfono?</summary>
-              <p>
-                Una vez realizado el pedido por Whatsapp se abona y dentro de
-                las 48hs se despacha el pedido.
-              </p>
-            </details>
-            {/* <details>
-            <summary>¿por que puede retrasarse mi pedido?</summary>
-            <p>no lo se che</p>
-          </details> */}
-            <details>
-              <summary>
-                ¿Como hago para ver el seguimiento de mi pedido?
-              </summary>
-              <p>
-                Todos los envíos tanto los correos, encomienda, como los
-                expresos por camión y avión, tienen un buscador de seguimiento
-                del pedido mediante una clave que brinda la empresa de envío y
-                así el cliente puede hacer un seguimiento en tiempo real de su
-                paquete desde que sale de Buenos Aires hasta que llega a su
-                destino.
-              </p>
-            </details>
             <details>
               <summary>¿Puede un tercero recibir mi pedido?</summary>
               <p>
@@ -82,11 +49,11 @@ const Faqs = () => {
                   <li>
                     Transferencia bancaria con diferentes Bancos como: Banco
                     Galicia, BBVA Francés, Banco Provincia, Banco Nacíon, Banco
-                    Hipotecario
+                    Hipotecario, supervielle
                   </li>
                   <br />
                   <li>
-                    Targetas de credito o debito con recargo de 20% sobre el
+                    Tarjetas de credito o debito con recargo de 20% sobre el
                     total de la cotización final del pedido
                   </li>
                   <br />
@@ -97,13 +64,6 @@ const Faqs = () => {
                     debe abonar una comición de 1,5%)
                   </li>
                 </ul>
-              </p>
-            </details>
-            <details>
-              <summary>¿Quién abona el envío?</summary>
-              <p>
-                El envío lo abona el cliente, ya sea a provincia o a Buenos
-                Aires.
               </p>
             </details>
             <details>
@@ -119,14 +79,13 @@ const Faqs = () => {
                 y el reenvio a su destino.
               </p>
             </details>
-            <details>
-              <summary>
-                En caso de querer cambiar mi producto ¿Cómo lo hago?
-              </summary>
-              <p>
-                Comunicandose con nuestro servicio al cliente de Lunes a Viernes
-              </p>
-            </details>
+
+            {faqs?.map((elem, i) => (
+              <details key={i}>
+                <summary>{elem.question}</summary>
+                <p>{elem.response}</p>
+              </details>
+            ))}
           </div>
         </div>
         <div className={styles.noquestion}>
@@ -134,27 +93,15 @@ const Faqs = () => {
             <h3>¿AÚN NO ENCUENTRAS TU RESPUESTA?</h3>
             <p>
               PREGUNTALE A NUESTRO SERVICIO AL CLIENTE: <br /> Lun - Vie: 9:00
-              AM a 9:00PM <br /> Sab - Dom: 10:00 AM a 18:00 PM
+              AM a 9:00PM <br /> Sab: 09:00 AM a 15:00 PM
             </p>
             <br />
             <a href={`https://wa.me/541139210786`} target="_blank">
               CONTACTANOS
             </a>
           </div>
-          {/* <div className={styles.childrens}>
-            <h3>NIDEA JEJEJEEJEJEJ</h3>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Architecto facere assumenda nulla sunt qui sit beatae optio illum
-              magni cupiditate ?
-            </p>
-            <br />
-            <a href="#">WHATSAPP</a>
-          </div> */}
         </div>
       </div>
-      <PreFooter></PreFooter>
-      <Footer></Footer>
     </div>
   );
 };

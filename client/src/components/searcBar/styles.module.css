@@ -22,7 +22,38 @@
   background-color: rgba(128, 128, 128, 0.301);
 }
 
-.searchBar form > .button {
+.searchBar form > .buttonOn {
+  height: 2.8em;
+  width: 2.5em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  padding: 0 5px 0 0;
+  cursor: pointer;
+
+  background-color: rgba(128, 128, 128, 0.301);
+}
+
+.buttonOff {
+  height: 2.8em;
+  width: 2.5em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  padding: 0 5px 0 0;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+
+  background-color: rgba(128, 128, 128, 0.301);
+}
+
+.buttonRemove {
   height: 2.8em;
   width: 2.5em;
 

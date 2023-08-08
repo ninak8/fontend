@@ -1,26 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getProductByID, cleanDetail } from "../../redux/actions";
+import {
+  getProductByID,
+  // cleanDetail,
+  // getProductByName,
+  getByCategory,
+} from "../../redux/actions";
 
+import { SaleDetail, Loader, Card } from "../../components/index";
 import Carrusel from "./carrusel";
-import PreFooter from "../../components/preFooter/preFooter";
-import Footer from "../../components/footer/footer";
-import Loader from "../../components/loader/loader";
 
 import styles from "./styles.module.css";
 
-const Detail = ({ id }) => {
+const Detail = ({ id, category }) => {
   const dispatch = useDispatch();
+  const productByID = useSelector((state) => state.detail);
+  const products = useSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(getProductByID(id));
-    // return function () {
-    //   dispatch(cleanDetail());
-    // };
-  }, [dispatch, id]);
+    if (!products.length) {
+      dispatch(getByCategory(category));
+    }
+  }, [dispatch, id, products, category]);
 
-  const productByID = useSelector((state) => state.detail);
+  let sixProducts = products?.slice(0, 6);
   return (
     <div className={styles.detail}>
       {!productByID && <Loader />}
@@ -32,11 +36,11 @@ const Detail = ({ id }) => {
           <div className={styles.info}>
             <div className={styles.one}>
               <div className={styles.tags}>
-                {Array.isArray(productByID.tags) ? (
-                  productByID.tags.map((tag, i) => <span key={i}>/ {tag}</span>)
-                ) : (
-                  <span>- -</span>
-                )}
+                {Array.isArray(productByID.tags)
+                  ? productByID.tags.map((tag, i) => (
+                      <span key={i}>/ {tag}</span>
+                    ))
+                  : null}
               </div>
               <span>{productByID.score}</span>
             </div>
@@ -69,19 +73,16 @@ const Detail = ({ id }) => {
                   </div>
                 </div>
                 <div className={styles.images}>
-                  {Array.isArray(productByID.image) ? (
-                    productByID.image.map((img, i) => (
-                      <img src={img} alt="product" key={i} />
-                    ))
-                  ) : (
-                    <span>-</span>
-                  )}
+                  {Array.isArray(productByID.image)
+                    ? productByID.image.map((img, i) => (
+                        <img src={img} alt="product" key={i} />
+                      ))
+                    : null}
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div className={styles.bottom}>
           <div className={styles.two}>
             <details>
@@ -113,11 +114,25 @@ const Detail = ({ id }) => {
               </summary>
               <p>{productByID.description}</p>
             </details>
+            <div className={styles.containerCards}>
+              {sixProducts?.map((elem, i) => (
+                <Card
+                  name={elem?.name}
+                  score={elem?.score}
+                  tags={elem?.tags}
+                  category={elem.category}
+                  img={elem?.image[0]}
+                  key={elem?.id}
+                  id={elem?.id}
+                />
+              ))}
+            </div>
+          </div>
+          <div className={styles.three}>
+            <SaleDetail />
           </div>
         </div>
       </div>
-      <PreFooter />
-      <Footer />
     </div>
   );
 };

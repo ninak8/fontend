@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { getByCategory, getP, getByCategoryAndName } from "../../redux/actions";
+import {
+  useParams,
+  useLocation,
+} from "react-router-dom/cjs/react-router-dom.min";
 
-import Cards from "../../components/containerCards/cards";
-import PreFooter from "../../components/preFooter/preFooter";
-import Footer from "../../components/footer/footer";
-import Filter from "../../components/filters/filter";
-import Loader from "../../components/loader/loader";
-import Pages from "../../components/paginated/paginated";
+import {
+  getByCategory,
+  getP,
+  getByCategoryAndName,
+  getProductquery,
+} from "../../redux/actions";
+
+import { Cards, Filter, Loader, Pages, NotFound } from "../../components";
+import Teams from "../../components/soccerPictures/seleccion";
 
 import styles from "./styles.module.css";
-import NotFound from "../../components/notFound/notFound";
 
-const Catalogs = (props) => {
+const Catalogs = () => {
+  const location = useLocation();
+  const search = location.search.split("=").at(1);
   const products = useSelector((state) => state.products);
   const params = useParams();
   const dispatch = useDispatch();
@@ -26,14 +32,16 @@ const Catalogs = (props) => {
   // ******************* paginate
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(8);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = products.slice(firstPostIndex, lastPostIndex);
 
   useEffect(() => {
-    if (category === "all") {
+    if (search !== undefined) {
+      dispatch(getProductquery(search));
+    } else if (category === "all" && search === undefined) {
       dispatch(getP());
     } else if (category && name === undefined) {
       dispatch(getByCategory(category));
@@ -44,11 +52,24 @@ const Catalogs = (props) => {
 
   useEffect(() => {}, [order]);
 
+  const path = location.pathname;
+
   return (
     <div className={styles.catalogs}>
       <div className={styles.catalogsOne}>
-        <div className={styles.top}>
-          {/* aca con el historial de location creo */}
+        <div
+          className={
+            path !== "/catalogs/deporte/seleccion"
+              ? styles.topSin
+              : styles.topCon || path !== "/catalogs/deporte/river"
+              ? styles.topSin
+              : styles.topCon || path !== "/catalogs/deporte/boca"
+              ? styles.topSin
+              : styles.topCon || path !== "/catalogs/deporte/inter"
+              ? styles.topSin
+              : styles.topCon
+          }
+        >
           <a href="/" className={styles.back}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -60,11 +81,29 @@ const Catalogs = (props) => {
             </svg>
             <span>ATRÁS</span>
           </a>
+          <Teams />
         </div>
-        <div className={styles.title}>
+        <div
+          className={
+            path !== "/catalogs/deporte/seleccion"
+              ? styles.titleSin
+              : styles.title || path !== "/catalogs/deporte/river"
+              ? styles.titleSin
+              : styles.title || path !== "/catalogs/deporte/boca"
+              ? styles.titleSin
+              : styles.title || path !== "/catalogs/deporte/inter"
+              ? styles.titleSin
+              : styles.title
+          }
+        >
           <h1>NUEVOS PRODUCTOS Y LANZAMIENTOS</h1>
           <Filter products={products} setOrder={setOrder} />
         </div>
+        {search ? (
+          <div className={styles.results}>
+            <span>Resultados de: "{search}"</span>
+          </div>
+        ) : null}
         <div className={styles.row}>
           <Cards products={currentPosts} category={category} name={name} />
           {products[0] == null ? (
@@ -80,8 +119,6 @@ const Catalogs = (props) => {
           />
         </div>
       </div>
-      <PreFooter />
-      <Footer />
     </div>
   );
 };

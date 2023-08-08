@@ -2,17 +2,17 @@ import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Autoplay } from "swiper";
-import data from "./images.json";
 // import Swiper and modules styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./carousel.css";
 
-export default function Carousel() {
-  // const desktop = ["https://i.ibb.co/qjJWp7x/My-project-1-1.png"];
-  // const movil = ["https://i.ibb.co/h97QSNP/1687468880566.jpg"];
+export default function Carousel({ images }) {
   SwiperCore.use([Autoplay]);
+  const pc = images.filter((elem) => elem.name === "PC");
+  const tb = images.filter((elem) => elem.name === "TB");
+  const mv = images.filter((elem) => elem.name === "MV");
 
   return (
     <div className="containerCar">
@@ -30,13 +30,13 @@ export default function Carousel() {
           }}
           loop={true}
         >
-          {data.img.map((link, i) => {
-            return (
-              <SwiperSlide key={link}>
-                <img src={link} alt={i} />
+          {pc?.map((elem) =>
+            elem.image.map((img, i) => (
+              <SwiperSlide key={i}>
+                <img src={img} alt={img} />
               </SwiperSlide>
-            );
-          })}
+            ))
+          )}
         </Swiper>
       </div>
       <div className="tablet">
@@ -53,13 +53,13 @@ export default function Carousel() {
           }}
           loop={true}
         >
-          {data.tablet.map((link, i) => {
-            return (
-              <SwiperSlide key={link}>
-                <img src={link} alt={i} />
+          {tb?.map((elem) =>
+            elem.image.map((img, i) => (
+              <SwiperSlide key={i}>
+                <img src={img} alt={img} />
               </SwiperSlide>
-            );
-          })}
+            ))
+          )}
         </Swiper>
       </div>
       <div className="movilMovil">
@@ -76,13 +76,13 @@ export default function Carousel() {
           }}
           loop={true}
         >
-          {data.movil.map((link, i) => {
-            return (
-              <SwiperSlide key={link}>
-                <img src={link} alt={i} />
+          {mv?.map((elem) =>
+            elem.image.map((img, i) => (
+              <SwiperSlide key={i}>
+                <img src={img} alt={img} />
               </SwiperSlide>
-            );
-          })}
+            ))
+          )}
         </Swiper>
       </div>
     </div>

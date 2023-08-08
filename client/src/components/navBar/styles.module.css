@@ -1,14 +1,17 @@
 .icon {
-  width: 80px;
-  height: 80px;
-  margin-top: 1.2em;
-  animation: shake3856 2s linear infinite both;
-  /* filter: drop-shadow(0px 0px 1px #ffd904); */
+  width: 110px;
+  height: 110px;
+
+  z-index: 90000;
+  position: absolute;
+  top: 5px;
+
   transition: 1s;
+  animation: shake3856 2s linear infinite both;
 }
 
 .icon:hover {
-  animation: shake3856 5s linear infinite both;
+  animation: shake3856 1s linear infinite both;
   filter: drop-shadow(0px 0px 5px #f5f5f5ad);
   transition: 0.5s;
 }
@@ -58,10 +61,23 @@
   display: flex;
   justify-content: center;
   justify-items: center;
-  /* justify-content: space-around; */
 
   background-color: #101010;
   color: #f5f5f5;
+
+  transition: width;
+  animation-name: showtop;
+  animation-duration: 2s;
+}
+
+@keyframes showtop {
+  from {
+    height: 0;
+  }
+  to {
+    margin-top: 0em;
+    height: 4.5em;
+  }
 }
 
 .rigth {
@@ -73,17 +89,20 @@
 }
 
 /* ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿ */
-
-.containerButtons {
-  /* width: 17em; */
-  height: 4.5em;
-
+.menus {
   min-width: 11em;
 
   display: flex;
   justify-content: space-between;
+}
+
+.menus .containerButtons {
+  width: auto;
+  height: 4.5em;
+
+  display: flex;
+  justify-content: space-between;
   align-items: end;
-  /* background-color: red; */
 }
 
 .containerButtons div > a {
@@ -114,15 +133,6 @@
   border-bottom: 4px solid #ffd904;
   color: #ffd904;
 }
-
-/* .principalButton img {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0;
-  cursor: pointer;
-
-  background-color: green;
-} */
 
 .principalButton a > p {
   display: flex;
@@ -158,6 +168,20 @@
 
   background-color: #e7e7e7;
   z-index: 10000;
+
+  transition: height;
+  animation-name: showbottom;
+  animation-duration: 60ms;
+}
+
+@keyframes showbottom {
+  from {
+    height: 0;
+  }
+  to {
+    /* margin-top: 0em; */
+    height: 30em;
+  }
 }
 
 .dropDownsButtons {
@@ -255,6 +279,9 @@
 }
 
 @media (max-width: 865px) {
+  .menus {
+    display: none;
+  }
   .nav {
     width: 100%;
     height: auto;
@@ -344,6 +371,18 @@
     /* background-color: red; */
     transition: 2s;
     z-index: 1000;
+
+    transition: width;
+    animation-name: viewMovil;
+    animation-duration: 1s;
+  }
+  @keyframes viewMovil {
+    from {
+      right: -65%;
+    }
+    to {
+      right: 0em;
+    }
   }
 
   /* ..................... */
@@ -500,9 +539,20 @@
     transition: 2s;
     width: 80%;
   }
+  .navBar {
+    height: 3.5em;
+  }
+  .icon {
+    width: 60px;
+    height: 60px;
+    top: 0;
+  }
 }
 
 @media (max-width: 391px) {
+  .movilMenu {
+    width: 100%;
+  }
   .options {
     width: 100%;
     display: flex;
