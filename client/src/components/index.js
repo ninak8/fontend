@@ -17,6 +17,8 @@ import SearchBar from "./searcBar/serachBar";
 import Warning from "./sale/warning";
 import Equipment from "./equipos/equipos";
 import SaleDetail from "./sale/warningDetail";
+import Whatsapp from "./sale/whatsapp";
+import Faqs from "./sale/faqs";
 
 export {
   Card,
@@ -38,4 +40,6 @@ export {
   Warning,
   Equipment,
   SaleDetail,
+  Whatsapp,
+  Faqs,
 };

@@ -23,9 +23,35 @@
 }
 
 .one > div {
-  display: flex;
-  flex-direction: column;
   width: 2em;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.fb,
+.ig,
+.wp {
+  width: 2em;
+  height: 2em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+}
+
+.fb:hover {
+  background-color: #3b5998;
+}
+.ig:hover {
+  background-color: #e1306c;
+}
+.wp:hover {
+  background-color: #25d366;
 }
 
 .one > button {

@@ -11,7 +11,7 @@ const CardNav = ({ name, id, category, img, score, tags }) => {
 
   return (
     <div className={styles.card}>
-      <a href={`/detail/${id}`}>
+      <a href={`/detail/${id}/${category}`}>
         <img src={img} alt={name} />
         <div className={styles.info}>
           <div className={styles.starts}>

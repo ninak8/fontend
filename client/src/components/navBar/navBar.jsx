@@ -39,11 +39,10 @@ const NavBar = () => {
             {all && (
               <div className={styles.dropDowns}>
                 <div className={styles.dropDownsButtons}>
-                  {/* <a href="/catalogs?q=calzado"> */}
                   <a href="/catalogs/calzado">
                     <button className={styles.title}>CALZADOS</button>
                   </a>
-                  {/* </a> */}
+
                   <img
                     src="https://i.ibb.co/dJ8hHmB/My-project-1-27.png"
                     alt="imagen calzado"
@@ -55,11 +54,10 @@ const NavBar = () => {
                   <a href="/catalogs?q=calzado?q=Cal-originales">Originales</a>
                 </div>
                 <div className={styles.dropDownsButtons}>
-                  {/* <a href="/catalogs?q=ropa"> */}
                   <a href="/catalogs/ropa">
                     <button className={styles.title}>ROPA</button>
                   </a>
-                  {/* </a> */}
+
                   <img
                     src="https://i.ibb.co/YbxRVxB/My-project-1-26.png"
                     alt="imagen remera"
@@ -67,18 +65,16 @@ const NavBar = () => {
                     height={130}
                   />
                   <a href="/catalogs/ropa/novedades">Novedades</a>
-                  <a href="/catalogs/ropa/remera">Remeras</a>
+                  <a href="/catalogs/ropa/camiseta">Camisetas</a>
                   <a href="/catalogs/ropa/pantalon">Pantalones</a>
                   <a href="/catalogs/ropa/camiseta">Camisetas de fútbol</a>
                   <a href="/catalogs/ropa/short">Shorts</a>
-                  {/* <a href="/catalogs/ropa?q=Rop-original">Originales</a> */}
+                  <a href="/catalogs/ropa/conjunto">Conjuntos</a>
                 </div>
                 <div className={styles.dropDownsButtons}>
-                  {/* <a href="/catalogs?q=accesorio"> */}
                   <a href="/catalogs/accesorio">
                     <button className={styles.title}>ACCESORIOS</button>
                   </a>
-                  {/* </a> */}
                   <img
                     src="https://i.ibb.co/bNYGzN6/My-project-1-28.png"
                     alt="imagen guantes"
@@ -97,7 +93,7 @@ const NavBar = () => {
                   <a href="/catalogs/deporte/futbol">Fútbol</a>
                   <a href="/catalogs/deporte/basquet">Básquet</a>
                   <a href="/catalogs/deporte/tenis">Tenis</a>
-                  <a href="/catalogs/deporte/voley">Voley</a>
+                  <a href="/catalogs/deporte/voley">Vóley</a>
                 </div>
               </div>
             )}
@@ -135,7 +131,7 @@ const NavBar = () => {
                   <a href="/catalogs/accesorio/pelotas">Pelotas</a>
                   <a href="/catalogs/accesorio/bolso">Bolso Deportivo</a>
                   <a href="/catalogs/accesorio/targetas">Tarjetas</a>
-                  <a href="/catalogs/accesorio/silbatos">Silbatos</a>
+                  <a href="/catalogs/accesorio/silbato">Silbatos</a>
                   <a href="/catalogs/accesorio/conos">Conos</a>
                   <a href="/catalogs/accesorio/venda">Venda Elastica</a>
                 </div>
@@ -157,7 +153,7 @@ const NavBar = () => {
                 </div>
                 <div className={styles.dropDownsButtons}>
                   <a href="/catalogs/accesorio/voley">
-                    <button className={styles.title}>VOLEY</button>
+                    <button className={styles.title}>VÓLEY</button>
                   </a>
                   <img
                     src="https://resizer.glanacion.com/resizer/20_FmomeWH9PW_ag6w4zWawOLu8=/1200x800/filters:format(webp):quality(80):focal(3516x1082:3526x1072)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AGEXE65LKFAY3I2WCGRLNUBIWY.jpg"
@@ -177,7 +173,7 @@ const NavBar = () => {
                   <a href="/catalogs/accesorio/antiparras">Antiparras</a>
                   <a href="/catalogs/accesorio/soga">Soga Para Saltar</a>
                   <a href="/catalogs/accesorio/conos">Conos</a>
-                  <a href="/catalogs/accesorio/bandas">Bandas Elásticas</a>
+                  <a href="/catalogs/accesorio/venda">Vendas Elásticas</a>
                   <a href="/catalogs/accesorio/pesas">Pesas</a>
                 </div>
               </div>
@@ -188,7 +184,7 @@ const NavBar = () => {
         <div className={styles.rigth}>
           <SearchBar />
           <div className={styles.containerFAQS}>
-            <a href="/faqs">
+            <a href="/ayuda/faqs">
               <div className={styles.divFaqs}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -334,6 +330,7 @@ const NavBar = () => {
                       <a href="/catalogs/ropa/pantalon">Pantalones</a>
                       <a href="/catalogs/ropa/camiseta">Camisetas de fútbol</a>
                       <a href="/catalogs/ropa/short">Shorts</a>
+                      <a href="/catalogs/ropa/conjunto">Conjuntos</a>
                       <a href="/catalogs/ropa?q=Rop-original">Originales</a>
                     </div>
                     <div className={styles.dropDownsButtonsMovil}>
@@ -342,8 +339,8 @@ const NavBar = () => {
                       </a>
                       <a href="/catalogs/accesorio/pelota">Pelotas</a>
                       <a href="/catalogs/accesorio/gorra">Gorras</a>
-                      <a href="/catalogs/accesorio/media">Medias</a>
-                      <a href="/catalogs?q=accesorio?q=guante">Guantes</a>
+                      <a href="/catalogs/accesorio/medias">Medias</a>
+                      <a href="/catalogs/accesorio/guantes">Guantes</a>
                     </div>
                     <div className={styles.dropDownsButtonsMovil}>
                       <a href="/catalogs/deporte">
@@ -352,7 +349,7 @@ const NavBar = () => {
                       <a href="/catalogs/deporte/futbol">Fútbol</a>
                       <a href="/catalogs/deporte/basquet">Básquet</a>
                       <a href="/catalogs/deporte/tenis">Tenis</a>
-                      <a href="/catalogs/deporte/voley">Voley</a>
+                      <a href="/catalogs/deporte/voley">Vóley</a>
                     </div>
                   </div>
                 )}
@@ -397,8 +394,8 @@ const NavBar = () => {
                       </a>
                       <a href="/catalogs/accesorio/pelota">Pelotas</a>
                       <a href="/catalogs/accesorio/gorra">Gorras</a>
-                      <a href="/catalogs/accesorio/media">Medias</a>
-                      <a href="/catalogs?q=accesorio?q=guante">Guantes</a>
+                      <a href="/catalogs/accesorio/medias">Medias</a>
+                      <a href="/catalogs/accesorio/guantes">Guantes</a>
                     </div>
                     <div className={styles.dropDownsButtonsMovil}>
                       <a href="/catalogs/deporte">
@@ -407,12 +404,12 @@ const NavBar = () => {
                       <a href="/catalogs/deporte/futbol">Fútbol</a>
                       <a href="/catalogs/deporte/basquet">Básquet</a>
                       <a href="/catalogs/deporte/tenis">Tenis</a>
-                      <a href="/catalogs/deporte/voley">Voley</a>
+                      <a href="/catalogs/deporte/voley">Vóley</a>
                     </div>
                   </div>
                 )}
                 <div className={styles.question}>
-                  <a href="/faqs">
+                  <a href="/ayuda/faqs">
                     <span>PREGUNTAS FRECUENTES</span>
                   </a>
                 </div>

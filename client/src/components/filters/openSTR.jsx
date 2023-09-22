@@ -38,7 +38,12 @@ const OptionSTR = ({ open, setOpen, options, title, fnFilter }) => {
       {open ? (
         <div className={styles.bottom}>
           {options?.map((elem, i) => (
-            <option value={elem} key={i} onClick={(e) => fnFilter(e)}>
+            <option
+              value={elem}
+              key={i}
+              onClick={(e) => fnFilter(e)}
+              className={styles.options}
+            >
               {elem}
             </option>
           ))}

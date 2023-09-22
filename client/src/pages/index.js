@@ -5,5 +5,6 @@ import Create from "./create/create";
 import Catalogs from "./products/catalogs";
 import IAM from "./iam/iam";
 import Map from "./mapWeb/map";
+import Sizes from "./sizes/sizes";
 
-export { Home, Detail, Faqs, Create, Catalogs, IAM, Map };
+export { Home, Detail, Faqs, Create, Catalogs, IAM, Map, Sizes };

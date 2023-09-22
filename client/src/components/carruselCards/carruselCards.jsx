@@ -13,22 +13,6 @@ import "./styles.css";
 export default function Carrusel(props) {
   return (
     <div className="carrusel">
-      <div className="title">
-        <div>
-          <span>DESTACADOS</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            viewBox="0 0 24 24"
-          >
-            <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
-          </svg>
-        </div>
-        <a href="/catalogs/all">
-          <p>VER TODO</p>
-        </a>
-      </div>
       <div className="desktop">
         <Swiper
           slidesPerView={5}
@@ -46,7 +30,7 @@ export default function Carrusel(props) {
                 <Card
                   name={elem.name}
                   id={elem.id}
-                  img={elem.image[0]}
+                  img={elem.image}
                   max={elem.price}
                   score={elem.score}
                   tags={elem.tags}
@@ -74,7 +58,7 @@ export default function Carrusel(props) {
                 <Card
                   name={elem.name}
                   id={elem.id}
-                  img={elem.image[0]}
+                  img={elem.image}
                   max={elem.price}
                   score={elem.score}
                   tags={elem.tags}
@@ -102,7 +86,7 @@ export default function Carrusel(props) {
                 <Card
                   name={elem.name}
                   id={elem.id}
-                  img={elem.image[0]}
+                  img={elem.image}
                   max={elem.price}
                   score={elem.score}
                   tags={elem.tags}
@@ -131,7 +115,7 @@ export default function Carrusel(props) {
                   name={elem.name}
                   max={elem.price}
                   id={elem.id}
-                  img={elem.image[0]}
+                  img={elem.image}
                   score={elem.score}
                   tags={elem.tags}
                   category={elem.category}
@@ -159,7 +143,7 @@ export default function Carrusel(props) {
                   name={elem.name}
                   id={elem.id}
                   max={elem.price}
-                  img={elem.image[0]}
+                  img={elem.image}
                   score={elem.score}
                   tags={elem.tags}
                   category={elem.category}

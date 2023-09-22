@@ -2,7 +2,7 @@
   "name": "mercado-deporte",
   "homepage": "https://mercadodeporte-mdnj.online/",
   "version": "1.0.0",
-  "description": "Mercado Deporte - Ventas por mayor",
+  "description": "Mercado Deporte - Ventas por mayor de productos deportivos",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

@@ -25,5 +25,11 @@
   },
   "naranja": {
     "color": "rgb(255, 165, 0)"
+  },
+  "celeste": {
+    "color": "rgb(3, 169, 244)"
+  },
+  "violeta": {
+    "color": "rgb(142, 68, 173)"
   }
 }

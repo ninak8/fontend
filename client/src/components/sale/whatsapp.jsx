@@ -14,11 +14,11 @@ const Whatsapp = () => {
   return (
     <div className={styles.whatsapp}>
       <div onMouseOver={() => setOpen(true)}>
-        <a href="https://wa.me/541161320815" target="_blank">
+        <a href="https://wa.me/541161320815" target="_blank" rel="noreferrer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="90"
-            height="90"
+            width="70"
+            height="70"
             viewBox="0 0 24 24"
             style={{ fill: "#f5f5f5" }}
           >
@@ -32,8 +32,8 @@ const Whatsapp = () => {
       </div>
       {open === true ? (
         <div className={styles.message}>
-          <div>-</div>
           <span>Mandanos tu pedido!</span>
+          <div>-</div>
         </div>
       ) : null}
     </div>

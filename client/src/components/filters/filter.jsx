@@ -20,9 +20,6 @@ const Filter = ({ products, setOrder }) => {
   const tags = useSelector((state) => state.tags);
   const colors = useSelector((state) => state.colors);
 
-  const categories = ["ropa", "calzado", "accesorio"];
-  const genre = ["unisex", "mujer", "hombre"];
-
   useEffect(() => {
     if (!sizes.length) {
       dispatch(getAllSizes());
@@ -38,15 +35,26 @@ const Filter = ({ products, setOrder }) => {
   const [selection, setSelections] = useState([]);
   const [filters, setFilters] = useState(false);
   // opens
-  const [orders, setOrders] = useState(false);
-  //
+  // const [orders, setOrders] = useState(false);
   const [openSizes, setOpenSizes] = useState(false);
   const [openColors, setOpenColors] = useState(false);
   const [sports, setSports] = useState(false);
   const [category, setCategory] = useState(false);
   const [openGenre, setOpenGenre] = useState(false);
+  const [openItems, setOpenItems] = useState(false);
+  const [openScore, setOpenScore] = useState(false);
 
   // -------------------------------
+
+  const check = (value, search) => {
+    const findSelect = selection.find((elem) => elem === value);
+    if (findSelect) {
+      return null;
+    } else {
+      setSelections([...selection, value]);
+    }
+    dispatch(filter(search));
+  };
 
   const orderByAlphabet = (e) => {
     const value = e.target.value;
@@ -56,10 +64,8 @@ const Filter = ({ products, setOrder }) => {
 
   const filterBySize = (e) => {
     const value = e.target.value;
-    // console.log(products);s
     const selectedSizes = products.filter((elem) => elem.sizes.includes(value));
-    setSelections([...selection, value]);
-    dispatch(filter(selectedSizes));
+    check(value, selectedSizes);
   };
 
   const filterByColors = (e) => {
@@ -67,36 +73,59 @@ const Filter = ({ products, setOrder }) => {
     const selectedColor = products.filter((elem) =>
       elem.colors.includes(value)
     );
-    setSelections([...selection, value]);
-    dispatch(filter(selectedColor));
+    check(value, selectedColor);
   };
 
   const filterByTag = (e) => {
     const value = e.target.value;
-
     const selectedTags = products.filter((elem) => elem.tags.includes(value));
-    dispatch(filter(selectedTags));
+    check(value, selectedTags);
   };
 
   const filterByCategory = (e) => {
     const value = e.target.value;
-
     const selectedCategories = products.filter(
       (elem) => elem.category === value
     );
-    dispatch(filter(selectedCategories));
+    check(value, selectedCategories);
   };
 
   const filterByGenre = (e) => {
     const value = e.target.value;
     const selectedGenre = products.filter((elem) => elem.genre === value);
-    dispatch(filter(selectedGenre));
+    check(value, selectedGenre);
+  };
+
+  const filterByScore = (e) => {
+    const value = e.target.value;
+    const selectedScore = products.filter((elem) => elem.score === value);
+    check(value, selectedScore);
   };
 
   const removeFilters = () => {
     dispatch(getP());
     setSelections([]);
   };
+
+  const cuadros = [
+    "River Plate",
+    "Boca Juniors",
+    "Racing",
+    "Independiente",
+    "Selección ARG",
+  ];
+  const deportes = [
+    "fútbol",
+    "básquet",
+    "vóley",
+    "pádel",
+    "natacion",
+    "hockey",
+    "rugby",
+  ];
+  const categories = ["ropa", "calzado", "accesorio"];
+  const genre = ["unisex", "mujer", "hombre"];
+  const score = ["1", "2", "3", "4", "5"];
 
   // -------------------------------
 
@@ -118,68 +147,80 @@ const Filter = ({ products, setOrder }) => {
           <div className={styles.dropDowns}>
             <div className={styles.top}>
               <span>FILTRAR Y ORDENAR</span>
-              <div className={styles.right}>
-                <button onClick={() => setFilters(false)}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
-                  </svg>
-                </button>
-                {selection !== false && (
-                  <span value="remove" onClick={removeFilters}>
-                    remover filtros
-                  </span>
-                )}
-              </div>
+              <button onClick={() => setFilters(false)}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path>
+                </svg>
+              </button>
             </div>
-            {selection && (
-              <div className={styles.selections}>
-                {selection.map((elem, i) => (
-                  <span key={i} className={styles.select}>
-                    {elem}
-                  </span>
-                ))}
+            {selection.length !== 0 && (
+              <div className={styles.disabled}>
+                <span className={styles.remove} onClick={removeFilters}>
+                  Remover filtros
+                </span>
+                <div className={styles.selections}>
+                  {selection.map((elem, i) => (
+                    <span key={i} className={styles.select}>
+                      {elem}
+                    </span>
+                  ))}
+                </div>
               </div>
             )}
             <div className={styles.dropDownsButtons}>
               <OpenItems
                 open={openSizes}
                 setOpen={setOpenSizes}
-                title={"talles"}
+                title={"Talles"}
                 options={sizes}
                 fnFilter={filterBySize}
               />
               <OpenItems
                 open={openColors}
                 setOpen={setOpenColors}
-                title={"colores"}
+                title={"Colores"}
                 options={colors}
                 fnFilter={filterByColors}
               />
-              <OpenItems
+              <OptionSTR
+                open={openItems}
+                setOpen={setOpenItems}
+                title={"Cuadros"}
+                options={cuadros}
+                fnFilter={filterByTag}
+              />
+              <OptionSTR
                 open={sports}
                 setOpen={setSports}
-                title={"deportes"}
-                options={tags}
+                title={"Deportes"}
+                options={deportes}
                 fnFilter={filterByTag}
               />
               <OptionSTR
                 open={category}
                 setOpen={setCategory}
-                title={"categorias"}
+                title={"Categorias"}
                 options={categories}
                 fnFilter={filterByCategory}
               />
               <OptionSTR
                 open={openGenre}
                 setOpen={setOpenGenre}
-                title={"generos"}
+                title={"Géneros"}
                 options={genre}
                 fnFilter={filterByGenre}
+              />{" "}
+              <OptionSTR
+                open={openScore}
+                setOpen={setOpenScore}
+                title={"Puntaje"}
+                options={score}
+                fnFilter={filterByScore}
               />
               <button onClick={() => setFilters(false)}>FILTRAR</button>
             </div>

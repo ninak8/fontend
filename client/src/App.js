@@ -2,10 +2,9 @@ import React from "react";
 import { Route } from "react-router-dom";
 import axios from "axios";
 
-import { Home, Detail, Faqs, Catalogs, IAM, Map } from "./pages/index";
-import NavBar from "./components/navBar/navBar";
+import { Home, Detail, Faqs, Catalogs, IAM, Map, Sizes } from "./pages/index";
+import { Footer, PreFooter, Whatsapp, NavBar } from "./components";
 import "./App.css";
-import { Footer, PreFooter } from "./components";
 
 axios.defaults.baseURL = "https://back-production-c55d.up.railway.app/";
 // axios.defaults.baseURL = "http://localhost:3001/";
@@ -33,7 +32,7 @@ function App() {
           <Detail id={match.params.id} category={match.params.category} />
         )}
       />
-      <Route exact path="/faqs">
+      <Route exact path="/ayuda/faqs">
         <Faqs />
       </Route>
       {/* --------------------- */}
@@ -45,14 +44,19 @@ function App() {
         <Catalogs inputEvent={eventInput} />
       </Route>
 
-      <Route exact path="/iam">
+      <Route exact path="/sobre-mercado-deporte">
         <IAM />
       </Route>
 
-      <Route exact path="/map">
+      <Route exact path="/mapa-del-sitio">
         <Map />
       </Route>
+
+      <Route exact path="/gua-de-tallas">
+        <Sizes />
+      </Route>
       {/* <-------- --------> */}
+      <Whatsapp />
       <PreFooter />
       <Footer />
     </div>

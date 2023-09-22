@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 1em;
 }
 
 .open > button {
@@ -16,8 +17,9 @@
 
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-direction: row-reverse;
+  align-items: center;
+  text-align: start;
 
   background-color: #ffffff;
 }
@@ -27,9 +29,9 @@
 
   margin-left: 0.5em;
 
-  font-family: "Sarabun", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 .bottom {
@@ -41,7 +43,9 @@
   flex-direction: column;
 }
 
-.bottom > option {
+.bottom > .sizes,
+.bottom > .tags,
+.bottom > .options {
   width: 100%;
   height: 3em;
 
@@ -49,17 +53,34 @@
   margin-left: 5px;
   border-bottom: 1px solid gray;
   cursor: pointer;
+  transition: 50ms;
 
   display: flex;
   align-items: center;
 }
 
 .bottom > option:active {
-  background-color: red;
+  background-color: gray;
+  transition: 50ms;
 }
 
-/* <----------- COLORS -----------> */
+/* <----------- SIZES -----------> */
+.sizes {
+  min-width: 50px;
+  height: 40px;
 
+  margin: 5px 5px 0 0;
+  border: 3px solid white;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+/* <----------- COLORS -----------> */
 .containerColors {
   width: 95%;
 
@@ -67,9 +88,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  /* flex-direction: column; */
 }
-
 .optionColor {
   width: 40px;
   height: 40px;

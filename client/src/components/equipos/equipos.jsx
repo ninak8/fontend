@@ -26,7 +26,7 @@ const Equipment = () => {
       </svg>
       <div className={styles.teams}>
         <div className={styles.team}>
-          <a href="/catalogs/deporte/river">
+          <a href="/catalogs/deporte/River Plate">
             <img
               src="https://www.cariverplate.com.ar/images/logo-river.png?cache=a57"
               alt="river"
@@ -35,16 +35,16 @@ const Equipment = () => {
         </div>
         <div className={styles.line}>.</div>
         <div className={styles.team}>
-          <a href="/catalogs/deporte/seleccion">
+          <a href="/catalogs/deporte/Selección ARG">
             <img
-              src="https://www.afa.com.ar/img/site/dbc1eb9bc6c809f0c19b4ca3c38854bc.png"
+              src="https://seeklogo.com/images/A/argentine-football-association-afa-2018-logo-BDF55D25F3-seeklogo.com.png"
               alt="afa"
             />
           </a>
         </div>
         <div className={styles.line}>.</div>
         <div className={styles.team}>
-          <a href="/catalogs/deporte/inter">
+          <a href="/catalogs/deporte/Inter">
             <img
               src="https://images.mlssoccer.com/image/upload/assets/logos/MIA.svg"
               alt="inter"
@@ -53,7 +53,7 @@ const Equipment = () => {
         </div>
         <div className={styles.line}>.</div>
         <div className={styles.team}>
-          <a href="/catalogs/deporte/boca">
+          <a href="/catalogs/deporte/Boca Juniors">
             <img
               src="https://www.bocajuniors.com.ar/datafactory/html/v3/htmlCenter/customization/themes/bocaTheme/escudos/lg/5.png"
               alt="boca"
@@ -62,7 +62,7 @@ const Equipment = () => {
         </div>
         <div className={styles.line}>.</div>
         <div className={styles.team}>
-          <a href="/catalogs/deporte/independiente">
+          <a href="/catalogs/deporte/Independiente">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Escudo_del_Club_Atl%C3%A9tico_Independiente.svg/1945px-Escudo_del_Club_Atl%C3%A9tico_Independiente.svg.png"
               alt="inter"
@@ -71,7 +71,7 @@ const Equipment = () => {
         </div>
         <div className={styles.line}>.</div>
         <div className={styles.team}>
-          <a href="/catalogs/deporte/racing">
+          <a href="/catalogs/deporte/Racing">
             <img
               src="https://logodownload.org/wp-content/uploads/2018/10/racing-logo-escudo.png"
               alt="inter"

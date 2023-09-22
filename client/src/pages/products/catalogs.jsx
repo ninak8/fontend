@@ -19,11 +19,11 @@ import styles from "./styles.module.css";
 
 const Catalogs = () => {
   const location = useLocation();
-  const search = location.search.split("=").at(1);
   const products = useSelector((state) => state.products);
   const params = useParams();
   const dispatch = useDispatch();
 
+  const search = location.search.split("=").at(1);
   let category = params.category;
   let name = params.name;
 
@@ -32,7 +32,7 @@ const Catalogs = () => {
   // ******************* paginate
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage, setPostsPerPage] = useState(15);
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
@@ -41,12 +41,16 @@ const Catalogs = () => {
   useEffect(() => {
     if (search !== undefined) {
       dispatch(getProductquery(search));
-    } else if (category === "all" && search === undefined) {
+      // console.log("11111");
+    } else if (category === "all" && search === undefined && !name) {
       dispatch(getP());
+      // console.log("22222");
     } else if (category && name === undefined) {
       dispatch(getByCategory(category));
+      // console.log("33333");
     } else if (category && name) {
       dispatch(getByCategoryAndName(category, name));
+      // console.log("44444");
     }
   }, []);
 
@@ -59,13 +63,13 @@ const Catalogs = () => {
       <div className={styles.catalogsOne}>
         <div
           className={
-            path !== "/catalogs/deporte/seleccion"
+            path !== "/catalogs/deporte/Selección ARG"
               ? styles.topSin
-              : styles.topCon || path !== "/catalogs/deporte/river"
+              : styles.topCon || path !== "/catalogs/deporte/River Plate"
               ? styles.topSin
-              : styles.topCon || path !== "/catalogs/deporte/boca"
+              : styles.topCon || path !== "/catalogs/deporte/Boca Juniors"
               ? styles.topSin
-              : styles.topCon || path !== "/catalogs/deporte/inter"
+              : styles.topCon || path !== "/catalogs/deporte/Inter"
               ? styles.topSin
               : styles.topCon
           }
@@ -85,13 +89,13 @@ const Catalogs = () => {
         </div>
         <div
           className={
-            path !== "/catalogs/deporte/seleccion"
+            path !== "/catalogs/deporte/Selección ARG"
               ? styles.titleSin
-              : styles.title || path !== "/catalogs/deporte/river"
+              : styles.title || path !== "/catalogs/deporte/River Plate"
               ? styles.titleSin
-              : styles.title || path !== "/catalogs/deporte/boca"
+              : styles.title || path !== "/catalogs/deporte/Boca Juniors"
               ? styles.titleSin
-              : styles.title || path !== "/catalogs/deporte/inter"
+              : styles.title || path !== "/catalogs/deporte/Inter"
               ? styles.titleSin
               : styles.title
           }
@@ -99,11 +103,11 @@ const Catalogs = () => {
           <h1>NUEVOS PRODUCTOS Y LANZAMIENTOS</h1>
           <Filter products={products} setOrder={setOrder} />
         </div>
-        {search ? (
+        {/* {search ? (
           <div className={styles.results}>
             <span>Resultados de: "{search}"</span>
           </div>
-        ) : null}
+        ) : null} */}
         <div className={styles.row}>
           <Cards products={currentPosts} category={category} name={name} />
           {products[0] == null ? (

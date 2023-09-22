@@ -20,7 +20,6 @@ const Faqs = () => {
       <div className={styles.faqsOne}>
         <div className={styles.bottom}>
           <span>PREGUNTAS FRECUENTES</span>
-          {/*  */}
           <div className={styles.questions}>
             <details>
               <summary>¿Puede un tercero recibir mi pedido?</summary>
@@ -36,7 +35,7 @@ const Faqs = () => {
             </details>
             <details>
               <summary>¿Como puedo abonar mi pedido?</summary>
-              <p>
+              <p id="100">
                 Puede abonar mediante:
                 <br />
                 <br />
@@ -96,7 +95,11 @@ const Faqs = () => {
               AM a 9:00PM <br /> Sab: 09:00 AM a 15:00 PM
             </p>
             <br />
-            <a href={`https://wa.me/541139210786`} target="_blank">
+            <a
+              href={`https://wa.me/541161320815`}
+              target="_blank"
+              rel="noreferrer"
+            >
               CONTACTANOS
             </a>
           </div>

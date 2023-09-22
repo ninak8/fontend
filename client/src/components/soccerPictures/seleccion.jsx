@@ -45,11 +45,12 @@ const Teams = () => {
   };
   //
   let equipo;
-  if (location.pathname === "/catalogs/deporte/river") equipo = river;
-  else if (location.pathname === "/catalogs/deporte/boca") equipo = boca;
-  else if (location.pathname === "/catalogs/deporte/seleccion")
+  if (location.pathname === "/catalogs/deporte/River Plate") equipo = river;
+  else if (location.pathname === "/catalogs/deporte/Boca Juniors")
+    equipo = boca;
+  else if (location.pathname === "/catalogs/deporte/Selección ARG")
     equipo = seleccion;
-  else if (location.pathname === "/catalogs/deporte/inter") equipo = inter;
+  else if (location.pathname === "/catalogs/deporte/Inter") equipo = inter;
   else {
     return null;
   }

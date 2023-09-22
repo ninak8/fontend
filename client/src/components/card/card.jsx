@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 import styles from "./styles.module.css";
 
 const Card = ({ img, name, score, id, category, max }) => {
   const location = useLocation();
+  const [viewImg, setViewImg] = useState(false);
 
   let start = [];
   for (let i = 0; i < score; i++) {
@@ -12,11 +13,40 @@ const Card = ({ img, name, score, id, category, max }) => {
       start.push("item");
     }
   }
+  let twoImgs;
+  if (img.length > 1) {
+    twoImgs = img.slice(0, 2);
+  }
+
   if (name) {
     return (
-      <div className={styles.card}>
+      <div
+        itemscope
+        itemtype="https://schema.org/Product"
+        className={styles.card}
+      >
         <a href={`/detail/${id}/${category}`}>
-          <img src={img} alt={name} />
+          {img.length > 1 ? (
+            <>
+              {viewImg === false ? (
+                <img
+                  itemprop="image"
+                  src={twoImgs[0]}
+                  alt=""
+                  onMouseOver={() => setViewImg(true)}
+                />
+              ) : (
+                <img
+                  itemprop="image"
+                  src={twoImgs[1]}
+                  alt=""
+                  onMouseOut={() => setViewImg(false)}
+                />
+              )}
+            </>
+          ) : (
+            <img itemprop="image" src={img} alt="" />
+          )}
           <div
             className={
               location.pathname === "/" ? styles.starts : styles.startsBottom
@@ -37,9 +67,8 @@ const Card = ({ img, name, score, id, category, max }) => {
             ))}
           </div>
           <div className={styles.info}>
-            <span>{name}</span>
-            <p>{max}</p>
-            {/* {tags.map((tag, i)=> console.log(tag))} */}
+            <span itemprop="name">{name}</span>
+            <p itemprop="reviewBody">{max}</p>
           </div>
         </a>
       </div>

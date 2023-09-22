@@ -38,17 +38,18 @@ const OpenItems = ({ open, setOpen, options, title, fnFilter }) => {
       )}
       {/* </div> */}
       {open ? (
-        <div
-          className={
-            title === "colores" ? styles.containerColors : styles.bottom
-          }
-        >
+        <div className={styles.containerColors}>
           {options?.map((elem, i) =>
-            title === "talles" ? (
-              <option value={elem.size} key={i} onClick={(e) => fnFilter(e)}>
+            title === "Talles" ? (
+              <option
+                value={elem.size}
+                key={i}
+                onClick={(e) => fnFilter(e)}
+                className={styles.sizes}
+              >
                 <span>{elem.size}</span>
               </option>
-            ) : title === "colores" ? (
+            ) : (
               <option
                 className={styles.optionColor}
                 key={i}
@@ -58,10 +59,6 @@ const OpenItems = ({ open, setOpen, options, title, fnFilter }) => {
                   backgroundColor: `${colores[elem.name].color}`,
                 }}
               ></option>
-            ) : (
-              <option key={i} value={elem.name} onClick={(e) => fnFilter(e)}>
-                <span>{elem.name}</span>
-              </option>
             )
           )}
         </div>

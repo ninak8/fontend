@@ -1,27 +1,34 @@
 import React from "react";
 import styles from "./styles.module.css";
-import img from "../../images/icon.png";
 
 const IAM = () => {
   return (
     <div className={styles.iam}>
       <div className={styles.center}>
         <div className={styles.titles}>
-          <img src={img} alt="icon" />
+          <img src="https://i.ibb.co/qgTdpd0/icon.png" alt="icon" />
           <h1>QUIENES SOMOS?</h1>
         </div>
         <section>
           <p>
-            Somos una empresa joven en pleno crecimiento donde nuestro objetivo
-            es: llevarte a tu alcanse nuestro gran variedad de productos
+            Somos una empresa joven en pleno crecimiento, donde nuestro objetivo
+            es: llevar a tu alcance nuestra gran variedad de productos
             deportivos y facilitarte la compra y venta deportiva, unicamente por
             mayor
           </p>
-          <img src={img} alt="skdwkj" />
+          <div className={styles.containergifs}>
+            <img src="https://i.ibb.co/PzGdY8D/20230810-112037.gif" alt="" />
+            <img
+              src="https://i.ibb.co/zHkvDVq/animation.gif"
+              className={styles.none}
+              alt=""
+            />
+            <img src="https://i.ibb.co/HC4S1hW/20230810-120032.gif" alt="" />
+          </div>
         </section>
         <section>
           <h2 className={styles.preTitles}>
-            Podes conocer mas de nosotros en nuestras redes
+            Puedes conocer más de nosotros en nuestras redes
           </h2>
           {/*//?-------------------------------- */}
           <div className={styles.cards}>
@@ -42,6 +49,7 @@ const IAM = () => {
                     className={styles.fb}
                     href="https://www.facebook.com/natalia1978todofutbol/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <p className={styles.title}>
                       <svg
@@ -76,6 +84,7 @@ const IAM = () => {
                     className={styles.ig}
                     href="https://www.instagram.com/mercado.deporte/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <p className={styles.title}>
                       <svg
@@ -121,7 +130,11 @@ const IAM = () => {
             <p>
               RESPONDEREMOS SUS PREGUNTAS Y TOMAMOS SUS PEDIDOS A LA BREVEDAD
             </p>
-            <a href="https://wa.me/541161320815" target="_blank">
+            <a
+              href="https://wa.me/541161320815"
+              target="_blank"
+              rel="noreferrer"
+            >
               <span>Comunicate con nosotros!</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

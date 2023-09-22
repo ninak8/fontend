@@ -1,0 +1,47 @@
+.map {
+  width: 100%;
+  max-width: 1508px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.map > h1 {
+  margin: 1em 0;
+  margin-left: 10%;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+
+  text-decoration: underline 5px #ffd904;
+}
+
+.center {
+  margin-left: 10%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.children {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+.children > a {
+  color: #101010;
+  margin: 0 0 0.3em 0.5em;
+  transition: 90ms;
+}
+.children > a:hover {
+  background-color: #101010;
+  color: #f5f5f5;
+  transition: 90ms;
+}
+.children > h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}

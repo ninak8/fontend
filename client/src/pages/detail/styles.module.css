@@ -80,7 +80,9 @@
   width: 90%;
   height: auto;
 
-  margin-top: 2em;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
 }
 
 .info .title > h1 {
@@ -129,6 +131,24 @@
   font-size: 18px;
   font-family: "Sarabun", sans-serif;
 }
+.containerColors {
+  min-height: 3em;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+
+  margin-left: 0.6em;
+}
+.optionColor {
+  width: 40px;
+  height: 40px;
+
+  border: 5px solid rgb(238, 237, 237);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
 
 .images {
   padding-left: 0.6em;
@@ -150,53 +170,63 @@
 /* --------------------- */
 
 .bottom {
-  /* background-color: blue; */
   width: 100%;
   height: auto;
 
   display: flex;
-  flex-direction: row;
-
-  margin-top: 2em;
+  flex-direction: column;
 }
 
 .bottom .two {
-  /* background-color: pink; */
-  width: 75%;
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.three {
-  width: 25%;
+.open {
+  display: flex;
+  align-items: end;
+  flex-direction: column;
 }
-
-.bottom .two > details {
-  /* background-color: green; */
-  width: 92%;
-
-  padding: 0 16px;
-  margin-bottom: 1em;
-}
-
-.bottom .two details > summary {
+.bottom .two .open > .open {
   width: 100%;
   height: 5em;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: row-reverse;
 
+  border-radius: 0 0 10px 10px;
   font-size: 18px;
-  font-family: "Barlow", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
-
-.bottom .two details > p {
-  height: auto;
+.bottom .two .open > .closed {
+  width: 100%;
+  height: 5em;
 
   display: flex;
   align-items: center;
-  padding: 1em;
-  border-radius: 0 0 3px 3px;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+
+  border-radius: 0 0 0 10px;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+}
+.bottom .two .open button > span {
+  margin-left: 1em;
+}
+
+.bottom .two .open > p {
+  height: auto;
+  min-height: 3em;
+  width: 94%;
+
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 0 0 10px 10px;
 
   font-family: "Barlow", sans-serif;
   font-size: 16px;
@@ -210,6 +240,8 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+
+  margin-top: 1em;
 }
 
 @media (max-width: 1200px) {
@@ -271,10 +303,15 @@
   .bottom .two {
     width: 95%;
   }
+}
 
-  .three {
-    width: 100%;
-    height: 21em;
-    margin-bottom: 1em;
+@media (max-width: 500px) {
+  .bottom .two .open > .closed,
+  .bottom .two .open > .open {
+    height: 3em;
+  }
+
+  .bottom .two .open > p {
+    width: 90%;
   }
 }
