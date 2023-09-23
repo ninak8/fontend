@@ -1,15 +1,18 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, useLocation } from "react-router-dom";
 import axios from "axios";
 
 import { Home, Detail, Faqs, Catalogs, IAM, Map, Sizes } from "./pages/index";
 import { Footer, PreFooter, Whatsapp, NavBar } from "./components";
 import "./App.css";
 
+import FaqsNav from "./components/sale/faqs";
 axios.defaults.baseURL = "https://back-production-c55d.up.railway.app/";
 // axios.defaults.baseURL = "http://localhost:3001/";
 
 function App() {
+  const location = useLocation();
+  console.log(location.pathname);
   const eventInput = (setPaging) => {
     let fnResetPages = () => {
       setPaging((p) => (p = 0));

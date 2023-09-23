@@ -55,25 +55,10 @@ const Catalogs = () => {
   }, []);
 
   useEffect(() => {}, [order]);
-
-  const path = location.pathname;
-
   return (
     <div className={styles.catalogs}>
       <div className={styles.catalogsOne}>
-        <div
-          className={
-            path !== "/catalogs/deporte/Selección ARG"
-              ? styles.topSin
-              : styles.topCon || path !== "/catalogs/deporte/River Plate"
-              ? styles.topSin
-              : styles.topCon || path !== "/catalogs/deporte/Boca Juniors"
-              ? styles.topSin
-              : styles.topCon || path !== "/catalogs/deporte/Inter"
-              ? styles.topSin
-              : styles.topCon
-          }
-        >
+        <div className={styles.top}>
           <a href="/" className={styles.back}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,27 +72,10 @@ const Catalogs = () => {
           </a>
           <Teams />
         </div>
-        <div
-          className={
-            path !== "/catalogs/deporte/Selección ARG"
-              ? styles.titleSin
-              : styles.title || path !== "/catalogs/deporte/River Plate"
-              ? styles.titleSin
-              : styles.title || path !== "/catalogs/deporte/Boca Juniors"
-              ? styles.titleSin
-              : styles.title || path !== "/catalogs/deporte/Inter"
-              ? styles.titleSin
-              : styles.title
-          }
-        >
+        <div className={styles.title}>
           <h1>NUEVOS PRODUCTOS Y LANZAMIENTOS</h1>
           <Filter products={products} setOrder={setOrder} />
         </div>
-        {/* {search ? (
-          <div className={styles.results}>
-            <span>Resultados de: "{search}"</span>
-          </div>
-        ) : null} */}
         <div className={styles.row}>
           <Cards products={currentPosts} category={category} name={name} />
           {products[0] == null ? (

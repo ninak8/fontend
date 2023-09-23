@@ -71,7 +71,7 @@ const Detail = ({ id, category }) => {
             <div className={styles.sizes}>
               <div>
                 <p>Talles disponibles:</p>
-                <div>
+                <div className={styles.sizesContainer}>
                   {Array.isArray(productByID.sizes) ? (
                     productByID.sizes.map((size, i) => (
                       <span key={i}>{size}</span>
@@ -101,7 +101,7 @@ const Detail = ({ id, category }) => {
                 <div className={styles.images}>
                   {Array.isArray(productByID.image)
                     ? productByID.image.map((img, i) => (
-                        <img src={img} alt="product" />
+                        <img src={img} alt="product" key={i} />
                       ))
                     : null}
                 </div>
@@ -198,7 +198,7 @@ const Detail = ({ id, category }) => {
                 category={elem.category}
                 img={elem?.image}
                 max={elem.price}
-                key={elem?.id}
+                key={i}
                 id={elem?.id}
               />
             ))}

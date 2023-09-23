@@ -43,6 +43,22 @@ const Teams = () => {
     movilTow:
       "https://lmdiario.com.ar/download/multimedia.normal.af6cde1cfcc75bda.6a756c69616e20616c766172657a20466f746f204e41205245555445525320465f6e6f726d616c2e77656270.webp",
   };
+  const indepediente = {
+    name: "Independiente",
+    big: "https://i.ibb.co/yPRzbS3/independiente1.jpg",
+    bigTow: "https://i.ibb.co/0QTmKW1/independiente2.jpg",
+    bigThree: "https://i.ibb.co/cCxnDBx/independiente3.jpg",
+    movilOne: "https://i.ibb.co/cCxnDBx/independiente3.jpg",
+    movilTow: "https://i.ibb.co/4gN53wB/53021164796-183dcba6d2-b.jpg",
+  };
+  const racing = {
+    name: "Racing",
+    big: "https://i.ibb.co/BV1CSJQ/racing1.jpg",
+    bigTow: "https://i.ibb.co/whtKFq7/racing2.jpg",
+    bigThree: "https://i.ibb.co/6JbT5PC/racing3.jpg",
+    movilOne: "https://i.ibb.co/6JbT5PC/racing3.jpg",
+    movilTow: "https://i.ibb.co/BfNVf7D/racing-1440x810-wmk.webp",
+  };
   //
   let equipo;
   if (location.pathname === "/catalogs/deporte/River Plate") equipo = river;
@@ -51,6 +67,9 @@ const Teams = () => {
   else if (location.pathname === "/catalogs/deporte/Selección ARG")
     equipo = seleccion;
   else if (location.pathname === "/catalogs/deporte/Inter") equipo = inter;
+  else if (location.pathname === "/catalogs/deporte/Racing") equipo = racing;
+  else if (location.pathname === "/catalogs/deporte/Independiente")
+    equipo = indepediente;
   else {
     return null;
   }

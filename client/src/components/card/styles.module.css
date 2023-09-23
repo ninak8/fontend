@@ -1,4 +1,5 @@
-.card {
+.card,
+.cardMovil {
   background-color: #101010;
   width: 285px;
   height: 340px;
@@ -11,18 +12,21 @@
   position: relative;
 }
 
-.card > a {
+.card > a,
+.cardMovil > a {
   text-decoration: none;
 }
 
-.card a > img {
+.card a > img,
+.cardMovil a > img {
   width: 285px;
   height: 275px;
 
   object-fit: cover;
 }
 
-.card .info {
+.card .info,
+.cardMovil .info {
   width: auto;
   min-height: 3em;
 
@@ -56,4 +60,20 @@
 
 .info > p {
   color: #b3b2b2;
+}
+
+@media (max-width: 580px) {
+  .cardMovil {
+    width: 170px;
+    height: 265px;
+  }
+
+  .cardMovil a > img {
+    width: 170px;
+    height: 170px;
+  }
+
+  .startsBottom {
+    top: 9.4em;
+  }
 }

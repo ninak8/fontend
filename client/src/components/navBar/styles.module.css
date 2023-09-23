@@ -64,20 +64,6 @@
 
   background-color: #101010;
   color: #f5f5f5;
-
-  transition: width;
-  animation-name: showtop;
-  animation-duration: 2s;
-}
-
-@keyframes showtop {
-  from {
-    height: 0;
-  }
-  to {
-    margin-top: 0em;
-    height: 4.5em;
-  }
 }
 
 .rigth {
@@ -85,13 +71,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: green; */
 }
 
-/* ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿ */
 .menus {
   min-width: 11em;
-
   display: flex;
   justify-content: space-between;
 }
@@ -145,7 +128,6 @@
   padding-bottom: 0.5em;
   cursor: pointer;
   color: #f5f5f5;
-  /* color: aqua; */
 }
 
 .principalButton a > p:hover {
@@ -168,28 +150,12 @@
 
   background-color: #e7e7e7;
   z-index: 10000;
-
-  transition: height;
-  animation-name: showbottom;
-  animation-duration: 60ms;
-}
-
-@keyframes showbottom {
-  from {
-    height: 0;
-  }
-  to {
-    /* margin-top: 0em; */
-    height: 30em;
-  }
 }
 
 .dropDownsButtons {
   color: #101010;
   padding: 1em 0;
   width: 13rem;
-
-  /* background-color: yellow; */
 }
 
 .dropDownsButtons a > .title {
@@ -220,7 +186,6 @@
 
   margin: 0.5em 0;
   border: none;
-  /* border-bottom: 1px solid #101010; */
 
   background-color: transparent;
   color: #101010;
@@ -235,7 +200,7 @@
   object-fit: cover;
 }
 
-.divFaqs {
+.rigth > a {
   background-color: #ffd904;
 
   border-radius: 50%;
@@ -249,12 +214,6 @@
 
 .burger {
   display: none;
-}
-
-.containerFAQS {
-  display: flex;
-  align-items: center;
-  /* background-color: goldenrod; */
 }
 
 .center {

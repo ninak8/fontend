@@ -14,18 +14,20 @@ const Card = ({ img, name, score, id, category, max }) => {
     }
   }
   let twoImgs;
-  if (img.length > 1) {
+  if (img?.length > 1) {
     twoImgs = img.slice(0, 2);
   }
+
+  const name1 = name?.split(" ")[0];
 
   if (name) {
     return (
       <div
         itemscope
         itemtype="https://schema.org/Product"
-        className={styles.card}
+        className={location.pathname === "/" ? styles.card : styles.cardMovil}
       >
-        <a href={`/detail/${id}/${category}`}>
+        <a href={`/detail/${id}/${name1}`}>
           {img.length > 1 ? (
             <>
               {viewImg === false ? (

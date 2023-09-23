@@ -42,7 +42,6 @@ const Home = () => {
     <div className={styles.home}>
       {!featured.length && <Loader />}
       <div className={styles.homeTop}>
-        <Faqs />
         <div className={styles.contentCarr}>
           <Carousel images={images} />
         </div>

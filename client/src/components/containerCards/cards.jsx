@@ -6,15 +6,15 @@ import styles from "./styles.module.css";
 const Cards = ({ products }) => {
   return (
     <div className={styles.cards}>
-      {products?.map((elem) => (
+      {products?.map((elem, i) => (
         <Card
           name={elem?.name}
           score={elem?.score}
           tags={elem?.tags}
-          category={elem.category}
+          category={elem?.category}
           img={elem?.image}
-          max={elem.price}
-          key={elem?.id}
+          max={elem?.price}
+          key={i}
           id={elem?.id}
         />
       ))}

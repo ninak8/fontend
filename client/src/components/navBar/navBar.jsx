@@ -115,7 +115,7 @@ const NavBar = () => {
             {accessories && (
               <div className={styles.dropDowns}>
                 <div className={styles.dropDownsButtons}>
-                  <a href="/catalogs/accesorio/futbol">
+                  <a href="/catalogs/accesorio/fútbol">
                     <button className={styles.title}>FÚTBOL</button>
                   </a>
                   <img
@@ -136,7 +136,7 @@ const NavBar = () => {
                   <a href="/catalogs/accesorio/venda">Venda Elastica</a>
                 </div>
                 <div className={styles.dropDownsButtons}>
-                  <a href="/catalogs/accesorio/basquet">
+                  <a href="/catalogs/accesorio/básquet">
                     <button className={styles.title}>BÁSQUET</button>
                   </a>
                   <img
@@ -152,7 +152,7 @@ const NavBar = () => {
                   <a href="/catalogs/accesorio/venda">Venda Elastica</a>
                 </div>
                 <div className={styles.dropDownsButtons}>
-                  <a href="/catalogs/accesorio/voley">
+                  <a href="/catalogs/accesorio/vóley">
                     <button className={styles.title}>VÓLEY</button>
                   </a>
                   <img
@@ -183,21 +183,17 @@ const NavBar = () => {
 
         <div className={styles.rigth}>
           <SearchBar />
-          <div className={styles.containerFAQS}>
-            <a href="/ayuda/faqs">
-              <div className={styles.divFaqs}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  style={{ fill: "#101010" }}
-                >
-                  <path d="M12 4C9.243 4 7 6.243 7 9h2c0-1.654 1.346-3 3-3s3 1.346 3 3c0 1.069-.454 1.465-1.481 2.255-.382.294-.813.626-1.226 1.038C10.981 13.604 10.995 14.897 11 15v2h2v-2.009c0-.024.023-.601.707-1.284.32-.32.682-.598 1.031-.867C15.798 12.024 17 11.1 17 9c0-2.757-2.243-5-5-5zm-1 14h2v2h-2z"></path>
-                </svg>
-              </div>
-            </a>
-          </div>
+          <a href="/ayuda/faqs">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              style={{ fill: "#101010" }}
+            >
+              <path d="M12 4C9.243 4 7 6.243 7 9h2c0-1.654 1.346-3 3-3s3 1.346 3 3c0 1.069-.454 1.465-1.481 2.255-.382.294-.813.626-1.226 1.038C10.981 13.604 10.995 14.897 11 15v2h2v-2.009c0-.024.023-.601.707-1.284.32-.32.682-.598 1.031-.867C15.798 12.024 17 11.1 17 9c0-2.757-2.243-5-5-5zm-1 14h2v2h-2z"></path>
+            </svg>
+          </a>
         </div>
         {/* //!----------------------------------------------------------------------------------------------------- */}
         <div className={styles.movil}>
@@ -401,7 +397,7 @@ const NavBar = () => {
                       <a href="/catalogs/deporte">
                         <button className={styles.title}>DEPORTE</button>
                       </a>
-                      <a href="/catalogs/deporte/futbol">Fútbol</a>
+                      <a href="/catalogs/deporte/fútbol">Fútbol</a>
                       <a href="/catalogs/deporte/basquet">Básquet</a>
                       <a href="/catalogs/deporte/tenis">Tenis</a>
                       <a href="/catalogs/deporte/voley">Vóley</a>

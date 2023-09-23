@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./styles.module.css";
 
 const Pages = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) => {
@@ -10,6 +10,7 @@ const Pages = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) => {
 
   return (
     <div className={styles.pages}>
+      <span>Página: {currentPage}</span>
       {pages.map((page, index) => {
         return (
           <button
